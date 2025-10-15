@@ -204,9 +204,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Resource Include="Resources\ClearSansInfanity-Bold.ttf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
+    <Resource Include="Resources\ClearSansInfanity-Bold.ttf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

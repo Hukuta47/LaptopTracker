@@ -5,13 +5,16 @@
              StartupUri="MainWindow.xaml">
 	<Application.Resources>
 
-		<FontFamily x:Key="Proletarsk">
-			pack://application:,,,/resources/#Clear Sans Infanity
+		<FontFamily x:Key="Clear Sans Infanity">
+			pack://application:,,,/Resources/#Clear Sans Infanity Bold
 		</FontFamily>
 		<SolidColorBrush Color="#FF4900" x:Key="DefaultColor"/>
 
 		<Style TargetType="Button">
 			<Setter Property="FontSize" Value="24"/>
+			<Setter Property="FontFamily" Value="{StaticResource Clear Sans Infanity}"/>
+			<Setter Property="Foreground" Value="White"/>
+			<Setter Property="BorderThickness" Value="0"/>
 			<Setter Property="Template">
 				<Setter.Value>
 					<ControlTemplate TargetType="Button">
