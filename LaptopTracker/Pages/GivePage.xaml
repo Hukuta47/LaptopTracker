@@ -8,5 +8,9 @@
       d:DesignHeight="768" d:DesignWidth="1366"
       Title="GivePage">
 
-    
+	<Grid>
+		<ScrollViewer VerticalScrollBarVisibility="Auto">
+			<WrapPanel Name="ItemsPanel" Orientation="Horizontal" Margin="10"/>
+		</ScrollViewer>
+	</Grid>
 </Page>
