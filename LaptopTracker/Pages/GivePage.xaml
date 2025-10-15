@@ -9,6 +9,11 @@
       Title="GivePage">
 
     <Grid>
-        
-    </Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition/>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+
+		<Button Content="asd"/>
+	</Grid>
 </Page>

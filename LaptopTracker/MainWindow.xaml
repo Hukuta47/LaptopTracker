@@ -5,15 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LaptopTracker"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-	<Grid>
-		<Grid.ColumnDefinitions>
-			<ColumnDefinition/>
-			<ColumnDefinition/>
-		</Grid.ColumnDefinitions>
-
-		<Button Grid.Column="0" Content="Выдать"/>
-		<Button Grid.Column="1" Content="Принять"/>
-
-	</Grid>
+        Title="LaptopTracker" Height="450" Width="800">
+	<Frame Name="MainFrame" Source=""/>
 </Window>

@@ -3,7 +3,24 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:LaptopTracker"
              StartupUri="MainWindow.xaml">
-    <Application.Resources>
-         
-    </Application.Resources>
+	<Application.Resources>
+
+		<FontFamily x:Key="Proletarsk">
+			pack://application:,,,/resources/#Clear Sans Infanity
+		</FontFamily>
+		<SolidColorBrush Color="#FF4900" x:Key="DefaultColor"/>
+
+		<Style TargetType="Button">
+			<Setter Property="FontSize" Value="24"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="Button">
+						<Border x:Name="border" Padding="{TemplateBinding Padding}" Background="{StaticResource DefaultColor}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="32">
+							<ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" RecognizesAccessKey="True" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" ContentStringFormat="{TemplateBinding ContentStringFormat}"/>
+						</Border>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+	</Application.Resources>
 </Application>
