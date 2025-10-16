@@ -9,6 +9,7 @@
       Title="GivePage">
 
 	<Grid>
+		<Grid Background="#000000" Opacity="0.5" Panel.ZIndex="1" Name="Panel_SubstrateBackground"/>
 		<ScrollViewer x:Name="MainScroll" PanningMode="VerticalOnly" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled" IsManipulationEnabled="True">
 			<StackPanel>
 				<Grid Height="106"/>
