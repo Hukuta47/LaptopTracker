@@ -28,6 +28,8 @@ namespace LaptopTracker.Database
         public Nullable<int> RoomId { get; set; }
         public Nullable<int> DeviceModelId { get; set; }
         public Nullable<int> StatusId { get; set; }
+        public string ShortName { get; set; }
+        public string Image { get; set; }
     
         public virtual DeviceModel DeviceModel { get; set; }
         public virtual DeviceType DeviceType { get; set; }

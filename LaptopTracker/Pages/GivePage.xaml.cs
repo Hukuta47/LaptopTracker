@@ -1,18 +1,14 @@
-﻿using LaptopTracker.UserControls;
+﻿using LaptopTracker.Database;
+using LaptopTracker.UserControls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+
 
 namespace LaptopTracker.Pages
 {
@@ -25,10 +21,16 @@ namespace LaptopTracker.Pages
         {
             InitializeComponent();
 
-            for (int i = 0; i < 50; i++)
+
+            List<Device> devices = App.entities.Device.Where(laptop => laptop.DeviceType.Id == 9).ToList();
+
+            //.First()
+
+            foreach (var device in devices)
             {
-                var card = new DeviceCard();
-                card.SetData($"HP Hue PRO #{i + 1}", "Laptop-100", $"Это устройство №{i + 1}");
+                string Title = $"{device.DeviceModel.Manufacturer} {device.DeviceModel.Model}";
+
+                var card = new DeviceCard(device);
                 ItemsPanel.Children.Add(card);
             }
         }
@@ -38,8 +40,9 @@ namespace LaptopTracker.Pages
             MainWindow.Frame_MainFrame.GoBack();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void NextPage_Click(object sender, RoutedEventArgs e)
         {
+            List<DeviceCard> selectedDevices = new List<DeviceCard>();
 
         }
     }

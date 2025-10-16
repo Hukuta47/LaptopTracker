@@ -12,13 +12,18 @@ namespace LaptopTracker.Database
     using System;
     using System.Collections.Generic;
     
-    public partial class Laptop
+    public partial class PerfomanceRate
     {
-        public int Id { get; set; }
-        public Nullable<int> PerfomanceRateId { get; set; }
-        public Nullable<bool> Issued { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public PerfomanceRate()
+        {
+            this.Laptop = new HashSet<Laptop>();
+        }
     
-        public virtual Device Device { get; set; }
-        public virtual PerfomanceRate PerfomanceRate { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Laptop> Laptop { get; set; }
     }
 }

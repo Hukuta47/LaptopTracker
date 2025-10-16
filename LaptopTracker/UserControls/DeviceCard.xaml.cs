@@ -1,15 +1,17 @@
-﻿using System;
+﻿using LaptopTracker.Database;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Animation;
+using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 
 namespace LaptopTracker.UserControls
 {
     public partial class DeviceCard : UserControl
     {
-        private bool isSelected = false;
+        public bool isSelected = false;
         private bool movedTooFar = false;
         private bool infoShown = false;
 
@@ -25,11 +27,24 @@ namespace LaptopTracker.UserControls
         private DateTime lastTouchTime = DateTime.MinValue;
         private DateTime lastMouseTime = DateTime.MinValue;
 
-        public string Info { get; set; }
+        public string Info { get; }
 
-        public DeviceCard()
+        public DeviceCard(Device device)
         {
             InitializeComponent();
+
+
+            TextBlock_Title.Text = $"{device.DeviceModel.Manufacturer} {device.DeviceModel.Model}";
+            TextBlock_ShortName.Text = device.ShortName;
+
+            if (!string.IsNullOrEmpty(device.Image))
+            {
+                Image_PictureDevice.Source = new BitmapImage(new Uri(device.Image));
+            }
+            else
+            {
+                Image_PictureDevice.Source = null;  
+            }
 
             holdTimer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(0.5) };
             holdTimer.Tick += HoldTimer_Tick;
@@ -43,7 +58,6 @@ namespace LaptopTracker.UserControls
             PreviewMouseUp += DeviceCard_MouseUp;
         }
 
-        #region Touch handlers
         private void DeviceCard_TouchDown(object sender, TouchEventArgs e)
         {
             lastTouchTime = DateTime.UtcNow;
@@ -144,9 +158,8 @@ namespace LaptopTracker.UserControls
 
             activeTouchId = -1;
         }
-        #endregion
 
-        #region Mouse handlers
+
         private void DeviceCard_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if ((DateTime.UtcNow - lastTouchTime).TotalMilliseconds < 300) return;
@@ -253,7 +266,6 @@ namespace LaptopTracker.UserControls
 
             mouseActive = false;
         }
-        #endregion
 
         private void RemoveHostWindowHandlers()
         {
@@ -297,13 +309,6 @@ namespace LaptopTracker.UserControls
         private void ShowInfo()
         {
             MessageBox.Show(Info ?? "Нет дополнительной информации", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
-        }
-
-        public void SetData(string manufactureModel, string shortName, string info)
-        {
-            TextBlock_ManufactureModelName.Text = manufactureModel;
-            TextBlock_ShortName.Text = shortName;
-            Info = info;
         }
     }
 }

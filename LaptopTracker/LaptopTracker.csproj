@@ -64,6 +64,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Database\PerfomanceRate.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Pages\EnterData.xaml.cs">
       <DependentUpon>EnterData.xaml</DependentUpon>
     </Compile>
@@ -225,6 +228,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Resource Include="Resources\2022-03-30_02-17-18.webp" />
     <Resource Include="Resources\ClearSansInfanity-Bold.ttf" />
   </ItemGroup>
   <ItemGroup>
@@ -242,9 +246,10 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\NoImage.png" />
+    <Resource Include="Resources\c06509158.png" />
     <Resource Include="Resources\Chevron left.png" />
     <Resource Include="Resources\MarkSelection.png" />
-    <Resource Include="Resources\Sprite-0001.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
