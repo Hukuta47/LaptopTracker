@@ -228,6 +228,7 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Chevron left.png" />
     <Resource Include="Resources\MarkSelection.png" />
     <Resource Include="Resources\Sprite-0001.jpg" />
   </ItemGroup>

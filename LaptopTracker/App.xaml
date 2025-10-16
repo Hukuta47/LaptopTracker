@@ -15,6 +15,7 @@
 			<Setter Property="FontFamily" Value="{StaticResource Clear Sans Infanity}"/>
 			<Setter Property="Foreground" Value="White"/>
 			<Setter Property="BorderThickness" Value="0"/>
+			<Setter Property="Padding" Value="72,32,72,32"/>
 			<Setter Property="Template">
 				<Setter.Value>
 					<ControlTemplate TargetType="Button">
@@ -25,5 +26,23 @@
 				</Setter.Value>
 			</Setter>
 		</Style>
+
+		<Style TargetType="Button" x:Key="IconButton" >
+			<Setter Property="FontSize" Value="24"/>
+			<Setter Property="FontFamily" Value="{StaticResource Clear Sans Infanity}"/>
+			<Setter Property="Foreground" Value="White"/>
+			<Setter Property="BorderThickness" Value="0"/>
+			<Setter Property="Padding" Value="14"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="Button">
+						<Border x:Name="border" Padding="{TemplateBinding Padding}" Background="{StaticResource DefaultColor}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="32">
+							<ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" RecognizesAccessKey="True" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" ContentStringFormat="{TemplateBinding ContentStringFormat}"/>
+						</Border>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+
 	</Application.Resources>
 </Application>

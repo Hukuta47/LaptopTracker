@@ -25,12 +25,17 @@ namespace LaptopTracker.Pages
         {
             InitializeComponent();
 
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < 50; i++)
             {
                 var card = new DeviceCard();
                 card.SetData($"HP Hue PRO #{i + 1}", "Laptop-100", $"Это устройство №{i + 1}");
                 ItemsPanel.Children.Add(card);
             }
+        }
+
+        private void Return_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.Frame_MainFrame.GoBack();
         }
     }
 }

@@ -14,7 +14,7 @@
 			<ColumnDefinition/>
 		</Grid.ColumnDefinitions>
 
-		<Button FontSize="68" Content="ВЫДАТЬ" Grid.Column="0" Margin="16, 16, 8, 16"/>
+		<Button FontSize="68" Content="ВЫДАТЬ" Grid.Column="0" Margin="16, 16, 8, 16" Click="GivePage_Click"/>
 		<Button FontSize="68" Content="ПРИНЯТЬ" Grid.Column="1" Margin="8, 16, 16, 16"/>
 	</Grid>
 </Page>

@@ -24,5 +24,10 @@ namespace LaptopTracker.Pages
         {
             InitializeComponent();
         }
+
+        private void GivePage_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.Frame_MainFrame.Navigate(new GivePage());
+        }
     }
 }
