@@ -37,9 +37,9 @@ namespace LaptopTracker.UserControls
             TextBlock_Title.Text = $"{device.DeviceModel.Manufacturer} {device.DeviceModel.Model}";
             TextBlock_ShortName.Text = device.ShortName;
 
-            if (!string.IsNullOrEmpty(device.Image))
+            if (!string.IsNullOrEmpty(device.DeviceModel.Image))
             {
-                Image_PictureDevice.Source = new BitmapImage(new Uri(device.Image));
+                Image_PictureDevice.Source = new BitmapImage(new Uri(device.DeviceModel.Image));
             }
             else
             {

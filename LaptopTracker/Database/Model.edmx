@@ -78,7 +78,6 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="DeviceTypeId" Type="int" Nullable="false" />
           <Property Name="Characteristics" Type="xml" />
           <Property Name="InventoryNumber" Type="nvarchar" MaxLength="50" />
           <Property Name="SerialNumber" Type="nvarchar" MaxLength="50" />
@@ -86,7 +85,6 @@
           <Property Name="DeviceModelId" Type="int" />
           <Property Name="StatusId" Type="int" />
           <Property Name="ShortName" Type="varchar" MaxLength="50" />
-          <Property Name="Image" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="DeviceModel">
           <Key>
@@ -96,6 +94,7 @@
           <Property Name="Manufacturer" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Model" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="DeviceTypeId" Type="int" Nullable="false" />
+          <Property Name="Image" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="DeviceType">
           <Key>
@@ -300,18 +299,6 @@
             </Principal>
             <Dependent Role="Device">
               <PropertyRef Name="DeviceModelId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Device_DeviceType">
-          <End Role="DeviceType" Type="Self.DeviceType" Multiplicity="1" />
-          <End Role="Device" Type="Self.Device" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DeviceType">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Device">
-              <PropertyRef Name="DeviceTypeId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -542,10 +529,6 @@
             <End Role="DeviceModel" EntitySet="DeviceModel" />
             <End Role="Device" EntitySet="Device" />
           </AssociationSet>
-          <AssociationSet Name="FK_Device_DeviceType" Association="Self.FK_Device_DeviceType">
-            <End Role="DeviceType" EntitySet="DeviceType" />
-            <End Role="Device" EntitySet="Device" />
-          </AssociationSet>
           <AssociationSet Name="FK_Device_Room" Association="Self.FK_Device_Room">
             <End Role="Room" EntitySet="Room" />
             <End Role="Device" EntitySet="Device" />
@@ -653,10 +636,6 @@
           </AssociationSet>
           <AssociationSet Name="FK_Device_DeviceModel" Association="LITModel.FK_Device_DeviceModel">
             <End Role="DeviceModel" EntitySet="DeviceModel" />
-            <End Role="Device" EntitySet="Device" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Device_DeviceType" Association="LITModel.FK_Device_DeviceType">
-            <End Role="DeviceType" EntitySet="DeviceType" />
             <End Role="Device" EntitySet="Device" />
           </AssociationSet>
           <AssociationSet Name="FK_Device_Room" Association="LITModel.FK_Device_Room">
@@ -780,7 +759,6 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DeviceTypeId" Type="Int32" Nullable="false" />
           <Property Name="Characteristics" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="InventoryNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SerialNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -788,9 +766,7 @@
           <Property Name="DeviceModelId" Type="Int32" />
           <Property Name="StatusId" Type="Int32" />
           <Property Name="ShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="DeviceModel" Relationship="LITModel.FK_Device_DeviceModel" FromRole="Device" ToRole="DeviceModel" />
-          <NavigationProperty Name="DeviceType" Relationship="LITModel.FK_Device_DeviceType" FromRole="Device" ToRole="DeviceType" />
           <NavigationProperty Name="Room" Relationship="LITModel.FK_Device_Room" FromRole="Device" ToRole="Room" />
           <NavigationProperty Name="StatusDevice" Relationship="LITModel.FK_Device_StatusDevice" FromRole="Device" ToRole="StatusDevice" />
           <NavigationProperty Name="GivedDevices" Relationship="LITModel.FK_GivedDevices_Device" FromRole="Device" ToRole="GivedDevices" />
@@ -805,6 +781,7 @@
           <Property Name="Manufacturer" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Model" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="DeviceTypeId" Type="Int32" Nullable="false" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Device" Relationship="LITModel.FK_Device_DeviceModel" FromRole="DeviceModel" ToRole="Device" />
           <NavigationProperty Name="DeviceType" Relationship="LITModel.FK_DeviceModel_DeviceType" FromRole="DeviceModel" ToRole="DeviceType" />
           <NavigationProperty Name="CartridgeModel" Relationship="LITModel.CartridgeCompatibility" FromRole="DeviceModel" ToRole="CartridgeModel" />
@@ -815,7 +792,6 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Device" Relationship="LITModel.FK_Device_DeviceType" FromRole="DeviceType" ToRole="Device" />
           <NavigationProperty Name="DeviceModel" Relationship="LITModel.FK_DeviceModel_DeviceType" FromRole="DeviceType" ToRole="DeviceModel" />
         </EntityType>
         <EntityType Name="Employee">
@@ -1001,18 +977,6 @@
             </Principal>
             <Dependent Role="Device">
               <PropertyRef Name="DeviceModelId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Device_DeviceType">
-          <End Type="LITModel.DeviceType" Role="DeviceType" Multiplicity="1" />
-          <End Type="LITModel.Device" Role="Device" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DeviceType">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Device">
-              <PropertyRef Name="DeviceTypeId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1215,7 +1179,6 @@
           <EntitySetMapping Name="Device">
             <EntityTypeMapping TypeName="LITModel.Device">
               <MappingFragment StoreEntitySet="Device">
-                <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="ShortName" ColumnName="ShortName" />
                 <ScalarProperty Name="StatusId" ColumnName="StatusId" />
                 <ScalarProperty Name="DeviceModelId" ColumnName="DeviceModelId" />
@@ -1223,7 +1186,6 @@
                 <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
                 <ScalarProperty Name="InventoryNumber" ColumnName="InventoryNumber" />
                 <ScalarProperty Name="Characteristics" ColumnName="Characteristics" />
-                <ScalarProperty Name="DeviceTypeId" ColumnName="DeviceTypeId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1231,6 +1193,7 @@
           <EntitySetMapping Name="DeviceModel">
             <EntityTypeMapping TypeName="LITModel.DeviceModel">
               <MappingFragment StoreEntitySet="DeviceModel">
+                <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="DeviceTypeId" ColumnName="DeviceTypeId" />
                 <ScalarProperty Name="Model" ColumnName="Model" />
                 <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />

@@ -21,7 +21,6 @@ namespace LaptopTracker.Database
         }
     
         public int Id { get; set; }
-        public int DeviceTypeId { get; set; }
         public string Characteristics { get; set; }
         public string InventoryNumber { get; set; }
         public string SerialNumber { get; set; }
@@ -29,10 +28,8 @@ namespace LaptopTracker.Database
         public Nullable<int> DeviceModelId { get; set; }
         public Nullable<int> StatusId { get; set; }
         public string ShortName { get; set; }
-        public string Image { get; set; }
     
         public virtual DeviceModel DeviceModel { get; set; }
-        public virtual DeviceType DeviceType { get; set; }
         public virtual Room Room { get; set; }
         public virtual StatusDevice StatusDevice { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
