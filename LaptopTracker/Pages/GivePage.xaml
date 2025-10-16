@@ -9,8 +9,14 @@
       Title="GivePage">
 
 	<Grid>
-		<ScrollViewer VerticalScrollBarVisibility="Auto">
-			<WrapPanel Name="ItemsPanel" Orientation="Horizontal" Margin="10"/>
+		<ScrollViewer x:Name="MainScroll"
+              PanningMode="VerticalOnly"
+              VerticalScrollBarVisibility="Auto"
+              HorizontalScrollBarVisibility="Disabled"
+              IsManipulationEnabled="True">
+			<WrapPanel x:Name="ItemsPanel"
+               Orientation="Horizontal"
+               Margin="16"/>
 		</ScrollViewer>
 	</Grid>
 </Page>

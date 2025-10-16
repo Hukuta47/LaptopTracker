@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LaptopTracker.UserControls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,13 @@ namespace LaptopTracker.Pages
         public GivePage()
         {
             InitializeComponent();
+
+            for (int i = 0; i < 8; i++)
+            {
+                var card = new DeviceCard();
+                card.SetData($"HP Hue PRO #{i + 1}", "Laptop-100", $"Это устройство №{i + 1}");
+                ItemsPanel.Children.Add(card);
+            }
         }
     }
 }

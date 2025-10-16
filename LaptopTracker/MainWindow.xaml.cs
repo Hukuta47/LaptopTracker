@@ -8,7 +8,7 @@ namespace LaptopTracker
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.Navigate(new MainMenu());
+            MainFrame.Navigate(new GivePage());
         }
     }
 }

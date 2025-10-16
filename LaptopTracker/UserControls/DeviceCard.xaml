@@ -6,25 +6,62 @@
              xmlns:local="clr-namespace:LaptopTracker.UserControls"
              mc:Ignorable="d" >
 
+	<UserControl.Resources>
+
+		<Storyboard x:Key="PressDownAnimation">
+			<DoubleAnimation Storyboard.TargetName="CheckScale"
+                         Storyboard.TargetProperty="ScaleX"
+                         To="0.95" Duration="0:0:0.1"/>
+			<DoubleAnimation Storyboard.TargetName="CheckScale"
+                         Storyboard.TargetProperty="ScaleY"
+                         To="0.95" Duration="0:0:0.1"/>
+		</Storyboard>
+		<Storyboard x:Key="ReleaseAnimation">
+			<DoubleAnimation Storyboard.TargetName="CheckScale"
+                         Storyboard.TargetProperty="ScaleX"
+                         To="1" Duration="0:0:0.1"/>
+			<DoubleAnimation Storyboard.TargetName="CheckScale"
+                         Storyboard.TargetProperty="ScaleY"
+                         To="1" Duration="0:0:0.1"/>
+		</Storyboard>
+
+		<Storyboard x:Key="ShowCheckAnimation">
+			<DoubleAnimation Storyboard.TargetName="SelectBorder"
+                         Storyboard.TargetProperty="Opacity"
+                         From="0" To="1" Duration="0:0:0.1" />
+		</Storyboard>
+		<Storyboard x:Key="HideCheckAnimation">
+			<DoubleAnimation Storyboard.TargetName="SelectBorder"
+                         Storyboard.TargetProperty="Opacity"
+                         From="1" To="0" Duration="0:0:0.1" />
+		</Storyboard>
+	</UserControl.Resources>
+
+
 	<Grid Margin="16">
-		<Grid Panel.ZIndex="1"  Opacity="1">
+
+		<Grid.RenderTransform>
+			<ScaleTransform x:Name="CheckScale" ScaleX="1" ScaleY="1" />
+		</Grid.RenderTransform>
+		<Grid.RenderTransformOrigin>0.5,0.5</Grid.RenderTransformOrigin>
+
+		<Grid Panel.ZIndex="1"  Opacity="0" Name="SelectBorder">
 			<Border BorderBrush="#ff4900" BorderThickness="8" CornerRadius="32" Width="288" Height="382"/>
 			<Image Source="/Resources/MarkSelection.png" Width="68" HorizontalAlignment="Left" VerticalAlignment="Top" />
 		</Grid>
 		
-
 		<StackPanel  Width="288" Height="382" Background="#67747f">
 			<StackPanel.Clip>
 				<RectangleGeometry Rect="0,0,288, 382" RadiusX="36" RadiusY="36"/>
 			</StackPanel.Clip>
 			
-			<Image Width="256" Height="256" Margin="8,16,8,8" Source="/Resources/Sprite-0001.jpg">
+			<Image Name="Image_PictureDevice" Width="256" Height="256" Margin="8,16,8,8" Source="/Resources/Sprite-0001.jpg">
 				<Image.Clip>
 					<RectangleGeometry RadiusX="20" RadiusY="20" Rect="0,0,256,256"/>
 				</Image.Clip>
 			</Image>
-			<TextBlock TextTrimming="CharacterEllipsis" Text="XXXXX" TextAlignment="Center" FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" Foreground="White" FontSize="32" Margin="16,0,16,0" UseLayoutRounding="False" Width="256" TextWrapping="Wrap" Height="43.27"/>
-			<TextBlock TextTrimming="CharacterEllipsis" Text="YYYYY" TextAlignment="Center" FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" Foreground="White" FontSize="32" Margin="16,0,16,0" UseLayoutRounding="False" Width="256" TextWrapping="WrapWithOverflow"/>
+			<TextBlock Name="TextBlock_ManufactureModelName" TextTrimming="CharacterEllipsis" Text="XXXXX" TextAlignment="Center" FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" Foreground="White" FontSize="32" Margin="16,0,16,0" UseLayoutRounding="False" Width="256" TextWrapping="Wrap" Height="43.27"/>
+			<TextBlock Name="TextBlock_ShortName" TextTrimming="CharacterEllipsis" Text="YYYYY" TextAlignment="Center" FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" Foreground="White" FontSize="32" Margin="16,0,16,0" UseLayoutRounding="False" Width="256" TextWrapping="WrapWithOverflow"/>
 		</StackPanel>
 	</Grid>
 	
