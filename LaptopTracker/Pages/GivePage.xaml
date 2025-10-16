@@ -9,7 +9,7 @@
       Title="GivePage">
 
 	<Grid>
-		<Grid Background="#000000" Opacity="0.5" Panel.ZIndex="1" Name="Panel_SubstrateBackground"/>
+		<!--<Grid Background="#000000" Opacity="0.5" Panel.ZIndex="1" Name="Panel_SubstrateBackground"/>-->
 		<ScrollViewer x:Name="MainScroll" PanningMode="VerticalOnly" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled" IsManipulationEnabled="True">
 			<StackPanel>
 				<Grid Height="106"/>
@@ -18,7 +18,7 @@
 			</StackPanel>
 		</ScrollViewer>
 
-		<Button HorizontalAlignment="Center" VerticalAlignment="Bottom" Content="ВЫДАТЬ" FontSize="36" Margin="0,0,0,16"/>
+		<Button HorizontalAlignment="Center" VerticalAlignment="Bottom" Content="ПРОДОЛЖИТЬ" FontSize="36" Margin="0,0,0,16" Click="Button_Click"/>
 		<Button HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="36" Margin="16,16,0,16" Style="{StaticResource IconButton}" Click="Return_Click">
 			<Image Source="/Resources/Chevron left.png" Width="48" />
 		</Button>

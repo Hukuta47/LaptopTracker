@@ -37,5 +37,10 @@ namespace LaptopTracker.Pages
         {
             MainWindow.Frame_MainFrame.GoBack();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
