@@ -23,6 +23,7 @@ namespace LaptopTracker.Pages
         public EnterData()
         {
             InitializeComponent();
+            Combobox_SelectEmployee.ItemsSource = App.entities.Employee.Where(e => e.EmployeePosition.Any(p => p.Id == 1 || p.Id == 2 || p.Id == 4 || p.Id == 5)).ToList();
         }
 
         private void NextPage_Click(object sender, RoutedEventArgs e)
