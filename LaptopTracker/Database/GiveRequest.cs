@@ -12,27 +12,21 @@ namespace LaptopTracker.Database
     using System;
     using System.Collections.Generic;
     
-    public partial class Employee
+    public partial class GiveRequest
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Employee()
+        public GiveRequest()
         {
-            this.GivedDevices = new HashSet<GivedDevices>();
-            this.GiveRequest = new HashSet<GiveRequest>();
-            this.EmployeePosition = new HashSet<EmployeePosition>();
+            this.Device = new HashSet<Device>();
         }
     
         public int Id { get; set; }
-        public string FullName { get; set; }
-        public string DomainName { get; set; }
-        public Nullable<int> RoomId { get; set; }
+        public int WhoGivedEmployeeId { get; set; }
+        public System.DateTime GivedDate { get; set; }
+        public string Comment { get; set; }
     
-        public virtual Room Room { get; set; }
+        public virtual Employee Employee { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<GivedDevices> GivedDevices { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<GiveRequest> GiveRequest { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EmployeePosition> EmployeePosition { get; set; }
+        public virtual ICollection<Device> Device { get; set; }
     }
 }

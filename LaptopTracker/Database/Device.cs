@@ -18,6 +18,7 @@ namespace LaptopTracker.Database
         public Device()
         {
             this.GivedDevices = new HashSet<GivedDevices>();
+            this.GiveRequest = new HashSet<GiveRequest>();
         }
     
         public int Id { get; set; }
@@ -36,5 +37,7 @@ namespace LaptopTracker.Database
         public virtual ICollection<GivedDevices> GivedDevices { get; set; }
         public virtual Laptop Laptop { get; set; }
         public virtual Printer Printer { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<GiveRequest> GiveRequest { get; set; }
     }
 }
