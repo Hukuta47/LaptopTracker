@@ -1,0 +1,34 @@
+﻿<Page x:Class="LaptopTracker.Pages.GivePageResult"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LaptopTracker.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="768" d:DesignWidth="1366"
+      Title="GivePageResult">
+
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="auto"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+
+
+		<Border  Grid.Column="0" Background="#67747F" CornerRadius="32" Margin="16,16,8,16" Padding="16">
+			<StackPanel>
+				<TextBlock FontSize="36" Text="ПОДТВЕРДИТЕ ВЫДАЧУ" FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" Foreground="White" Margin="0,16,0,16" TextAlignment="Center"/>
+				<Rectangle Height="8" Fill="#FF505A63" RadiusX="4" RadiusY="4"/>
+				<ScrollViewer PanningMode="VerticalOnly" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled" IsManipulationEnabled="True">
+					<TextBlock FontSize="36" TextWrapping="Wrap" Text="" FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" Foreground="White" Margin="0,16,0,0"/>
+				</ScrollViewer>
+			</StackPanel>
+		</Border>
+
+		<Button Grid.Column="0" Grid.Row="1" FontSize="36" HorizontalAlignment="Left" Content="НАЗАД" Width="288" Margin="16,0,0,16" />
+		<Button Grid.Column="1" Grid.Row="1" FontSize="36" HorizontalAlignment="Right" Content="ВЫДАТЬ" Width="288" Margin="0,0,16,16"/>
+	</Grid>
+</Page>

@@ -18,7 +18,7 @@
 			</StackPanel>
 		</ScrollViewer>
 
-		<Button HorizontalAlignment="Center" VerticalAlignment="Bottom" Content="ПРОДОЛЖИТЬ" FontSize="36" Margin="0,0,0,16" Click="NextPage_Click"/>
+		<Button HorizontalAlignment="Center" VerticalAlignment="Bottom" Content="ПРОДОЛЖИТЬ" FontSize="36" Margin="0,0,0,16" Click="NextPage_Click" Name="Button_Next"/>
 		<Button HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="36" Margin="16,16,0,16" Style="{StaticResource IconButton}" Click="Return_Click">
 			<Image Source="/Resources/Chevron left.png" Width="48" />
 		</Button>

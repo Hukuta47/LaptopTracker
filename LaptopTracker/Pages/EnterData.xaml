@@ -33,13 +33,13 @@
 				</Grid.RowDefinitions>
 
 				<TextBlock Grid.Row="0" FontSize="36" Text="КОММЕНТАРИЙ" FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" Foreground="White" Margin="16,16,0,0" />
-				<TextBox Grid.Row="1" AcceptsReturn="True" Padding="16"  TextWrapping="WrapWithOverflow" FontSize="36" FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" Text="" VerticalScrollBarVisibility="Visible"/>
+				<TextBox Grid.Row="1" Padding="16" AcceptsReturn="True" TextWrapping="Wrap" FontSize="36" FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" Text="jasdfjasfjgsdjkfgsfgasfkasfgashfahksdgfkjasfjkagshfaskjfgkajsgdfjk" VerticalScrollBarVisibility="Hidden"/>
 
 			</Grid>
 		</Border>
 
 
-		<Button Grid.Column="0" Grid.Row="1" FontSize="36" HorizontalAlignment="Left" Content="ОТМЕНА" Width="288" Margin="16,0,0,16" />
-		<Button Grid.Column="1" Grid.Row="1" FontSize="36" HorizontalAlignment="Right" Content="ВЫДАТЬ" Width="288" Margin="0,0,16,16"/>
+		<Button Grid.Column="0" Grid.Row="1" FontSize="36" HorizontalAlignment="Left" Content="НАЗАД" Width="288" Margin="16,0,0,16" />
+		<Button Grid.Column="1" Grid.Row="1" FontSize="36" HorizontalAlignment="Right" Content="ДАЛЕЕ" Width="288" Margin="0,0,16,16" Click="NextPage_Click"/>
 	</Grid>
 </Page>

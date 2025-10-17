@@ -60,8 +60,8 @@
 					<RectangleGeometry RadiusX="20" RadiusY="20" Rect="0,0,256,256"/>
 				</Grid.Clip>
 
-				<Image Source="/Resources/NoImage.png" Stretch="None" />
-				<Image Name="Image_PictureDevice"/>
+				<Image Source="/Resources/NoImage.png" Stretch="None" Name="Image_NoImage" />
+				<Image Name="Image_PictureDevice" RenderOptions.BitmapScalingMode="HighQuality"/>
 
 
 			</Grid>

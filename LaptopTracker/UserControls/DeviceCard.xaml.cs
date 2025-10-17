@@ -1,4 +1,5 @@
 ﻿using LaptopTracker.Database;
+using LaptopTracker.Pages;
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -17,7 +18,7 @@ namespace LaptopTracker.UserControls
 
         private Point touchStart;
         private DispatcherTimer holdTimer;
-
+          
         private int activeTouchId = -1;
         private Window hostWindow;
 
@@ -29,22 +30,49 @@ namespace LaptopTracker.UserControls
 
         public string Info { get; }
 
+
+
+        
         public DeviceCard(Device device)
         {
             InitializeComponent();
 
+            
 
             TextBlock_Title.Text = $"{device.DeviceModel.Manufacturer} {device.DeviceModel.Model}";
             TextBlock_ShortName.Text = device.ShortName;
 
+
+
+
+
+
             if (!string.IsNullOrEmpty(device.DeviceModel.Image))
             {
-                Image_PictureDevice.Source = new BitmapImage(new Uri(device.DeviceModel.Image));
+                var bitmap = new BitmapImage();
+
+                bitmap.BeginInit();
+                bitmap.UriSource = new Uri(device.DeviceModel.Image);
+                bitmap.DownloadCompleted += (s, e) =>
+                {
+                    Image_NoImage.Visibility = Visibility.Hidden;
+                    Console.WriteLine("Изображение успешно загружено!");
+                };
+                bitmap.DownloadFailed += (s, e) =>
+                {
+                    Image_NoImage.Visibility = Visibility.Visible;
+                    Console.WriteLine("Ошибка загрузки изображения!");
+                };
+                bitmap.EndInit();
+
+                Image_PictureDevice.Source = bitmap;
             }
             else
             {
-                Image_PictureDevice.Source = null;  
+                Image_PictureDevice.Source = null;
+                Image_NoImage.IsEnabled = true;
             }
+
 
             holdTimer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(0.5) };
             holdTimer.Tick += HoldTimer_Tick;
@@ -304,6 +332,7 @@ namespace LaptopTracker.UserControls
             isSelected = !isSelected;
             var sb = (Storyboard)Resources[isSelected ? "ShowCheckAnimation" : "HideCheckAnimation"];
             sb.Begin();
+            GivePage.OnSelectElement();
         }
 
         private void ShowInfo()

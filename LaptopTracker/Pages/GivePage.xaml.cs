@@ -10,12 +10,14 @@ namespace LaptopTracker.Pages
 {
     public partial class GivePage : Page
     {
-
+        static WrapPanel staticItemsPanel;
+        static Button staticButton_Next;
         public GivePage()
         {
             InitializeComponent();
-
-            List<Device> devices = App.entities.Device.Where(laptop => laptop.DeviceModel.DeviceTypeId == 9).ToList();
+            staticItemsPanel = ItemsPanel;
+            staticButton_Next = Button_Next;
+            List<Device> devices = App.entities.Device.Where(laptop => laptop.DeviceModel.DeviceTypeId == 9).OrderBy(laptop => laptop.DeviceModelId).ToList();
             List<Device> selectedDevices = new List<Device>();
 
 
@@ -32,11 +34,36 @@ namespace LaptopTracker.Pages
             MainWindow.Frame_MainFrame.GoBack();
         }
 
+        public static void OnSelectElement()
+        {
+            
+            List<Device> devices = App.entities.Device.Where(laptop => laptop.DeviceModel.DeviceTypeId == 9).OrderBy(laptop => laptop.DeviceModelId).ToList();
+            bool isOneShosen = staticItemsPanel.Children.Cast<DeviceCard>().Where(Card => Card.isSelected == true).ToList().Count >= 1;
+
+
+            if (isOneShosen)
+            {
+                staticButton_Next.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                staticButton_Next.Visibility = Visibility.Hidden;
+            }
+        }
+
+
+
         private void NextPage_Click(object sender, RoutedEventArgs e)
         {
-            List<DeviceCard> selectedDevices = new List<DeviceCard>();
+            List<DeviceCard> selectedDevices = ItemsPanel.Children.Cast<DeviceCard>().Where(Card => Card.isSelected == true).ToList();
+
+            MainWindow.Frame_MainFrame.Navigate(new EnterData());
+            
+
+
+
+
 
         }
-        public void
     }
 }

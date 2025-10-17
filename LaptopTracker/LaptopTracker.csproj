@@ -70,10 +70,17 @@
     <Compile Include="Pages\EnterData.xaml.cs">
       <DependentUpon>EnterData.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\GivePageResult.xaml.cs">
+      <DependentUpon>GivePageResult.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\DeviceCard.xaml.cs">
       <DependentUpon>DeviceCard.xaml</DependentUpon>
     </Compile>
     <Page Include="Pages\EnterData.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\GivePageResult.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

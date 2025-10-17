@@ -16,18 +16,13 @@ using System.Windows.Shapes;
 namespace LaptopTracker.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для EnterData.xaml
+    /// Логика взаимодействия для GivePageResult.xaml
     /// </summary>
-    public partial class EnterData : Page
+    public partial class GivePageResult : Page
     {
-        public EnterData()
+        public GivePageResult()
         {
             InitializeComponent();
-        }
-
-        private void NextPage_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow.Frame_MainFrame.Navigate(new GivePageResult());
         }
     }
 }
