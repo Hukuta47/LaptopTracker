@@ -18,7 +18,7 @@ namespace LaptopTracker.Pages
 
         private void Give_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show();
+            //MessageBox.Show();
         }
         string GenerateFinalMessage(GiveRequest request)
         {
