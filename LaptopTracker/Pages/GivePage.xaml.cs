@@ -56,8 +56,14 @@ namespace LaptopTracker.Pages
         private void NextPage_Click(object sender, RoutedEventArgs e)
         {
             List<DeviceCard> selectedDevices = ItemsPanel.Children.Cast<DeviceCard>().Where(Card => Card.isSelected == true).ToList();
+            List<Device> devices = new List<Device>();
 
-            MainWindow.Frame_MainFrame.Navigate(new EnterData());
+            foreach (DeviceCard deviceCard in selectedDevices)
+            {
+                devices.Add(App.entities.Device.First(device => device.Id == deviceCard.DeviceId));
+            }
+
+            MainWindow.Frame_MainFrame.Navigate(new EnterData(devices));
             
 
 

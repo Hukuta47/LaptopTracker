@@ -31,12 +31,12 @@
 				<TextBlock Grid.Row="0"  FontSize="36" Text="ПОДТВЕРДИТЕ ВЫДАЧУ" FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" Foreground="White" Margin="0,16,0,16" TextAlignment="Center"/>
 				<Rectangle Grid.Row="2" Height="8" Fill="#FF505A63" RadiusX="4" RadiusY="4"/>
 				<ScrollViewer Grid.Row="4" PanningMode="VerticalOnly" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled" IsManipulationEnabled="True">
-					<TextBlock FontSize="36" TextWrapping="Wrap" FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" Foreground="White" Margin="0,16,0,0"/>
+					<TextBlock FontSize="36" Name="TextBlock_FinalMessage" TextWrapping="Wrap" FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" Foreground="White" Margin="0,16,0,0"/>
 				</ScrollViewer>
 			</Grid>
 		</Border>
 
-		<Button Grid.Column="0" Grid.Row="1" FontSize="36" HorizontalAlignment="Left" Content="НАЗАД" Width="288" Margin="16,0,0,16" />
+		<Button Grid.Column="0" Grid.Row="1" FontSize="36" HorizontalAlignment="Left" Content="НАЗАД" Width="288" Margin="16,0,0,16" Click="Return_Click" />
 		<Button Grid.Column="1" Grid.Row="1" FontSize="36" HorizontalAlignment="Right" Content="ВЫДАТЬ" Width="288" Margin="0,0,16,16" Click="Give_Click"/>
 	</Grid>
 </Page>

@@ -658,6 +658,7 @@
     <edmx:ConceptualModels>
       <Schema Namespace="LITModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="LITEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Employee" EntityType="LITModel.Employee" />
           <EntitySet Name="Building" EntityType="LITModel.Building" />
           <EntitySet Name="Cartridge" EntityType="LITModel.Cartridge" />
           <EntitySet Name="CartridgeModel" EntityType="LITModel.CartridgeModel" />
@@ -667,7 +668,6 @@
           <EntitySet Name="Device" EntityType="LITModel.Device" />
           <EntitySet Name="DeviceModel" EntityType="LITModel.DeviceModel" />
           <EntitySet Name="DeviceType" EntityType="LITModel.DeviceType" />
-          <EntitySet Name="Employee" EntityType="LITModel.Employee" />
           <EntitySet Name="EmployeePosition" EntityType="LITModel.EmployeePosition" />
           <EntitySet Name="GivedDevices" EntityType="LITModel.GivedDevices" />
           <EntitySet Name="GiveRequest" EntityType="LITModel.GiveRequest" />
@@ -766,7 +766,20 @@
             <End Role="Device" EntitySet="Device" />
             <End Role="GiveRequest" EntitySet="GiveRequest" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FullName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DomainName" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="RoomId" Type="Int32" />
+          <NavigationProperty Name="Room" Relationship="LITModel.FK_Employee_Room" FromRole="Employee" ToRole="Room" />
+          <NavigationProperty Name="GivedDevices" Relationship="LITModel.FK_GivedDevices_Employee" FromRole="Employee" ToRole="GivedDevices" />
+          <NavigationProperty Name="GiveRequest" Relationship="LITModel.FK_GiveRequest_Employee" FromRole="Employee" ToRole="GiveRequest" />
+          <NavigationProperty Name="EmployeePosition" Relationship="LITModel.Employee_EmployeePosition" FromRole="Employee" ToRole="EmployeePosition" />
+          </EntityType>
         <EntityType Name="Building">
           <Key>
             <PropertyRef Name="Id" />
@@ -870,19 +883,6 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="DeviceModel" Relationship="LITModel.FK_DeviceModel_DeviceType" FromRole="DeviceType" ToRole="DeviceModel" />
-        </EntityType>
-        <EntityType Name="Employee">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FullName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="DomainName" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
-          <Property Name="RoomId" Type="Int32" />
-          <NavigationProperty Name="Room" Relationship="LITModel.FK_Employee_Room" FromRole="Employee" ToRole="Room" />
-          <NavigationProperty Name="GivedDevices" Relationship="LITModel.FK_GivedDevices_Employee" FromRole="Employee" ToRole="GivedDevices" />
-          <NavigationProperty Name="GiveRequest" Relationship="LITModel.FK_GiveRequest_Employee" FromRole="Employee" ToRole="GiveRequest" />
-          <NavigationProperty Name="EmployeePosition" Relationship="LITModel.Employee_EmployeePosition" FromRole="Employee" ToRole="EmployeePosition" />
         </EntityType>
         <EntityType Name="EmployeePosition">
           <Key>
@@ -1223,6 +1223,16 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="Хранилище LITModelContainer" CdmEntityContainer="LITEntities">
+          <EntitySetMapping Name="Employee">
+            <EntityTypeMapping TypeName="LITModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+                <ScalarProperty Name="DomainName" ColumnName="DomainName" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Building">
             <EntityTypeMapping TypeName="LITModel.Building">
               <MappingFragment StoreEntitySet="Building">
@@ -1310,16 +1320,6 @@
             <EntityTypeMapping TypeName="LITModel.DeviceType">
               <MappingFragment StoreEntitySet="DeviceType">
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Employee">
-            <EntityTypeMapping TypeName="LITModel.Employee">
-              <MappingFragment StoreEntitySet="Employee">
-                <ScalarProperty Name="RoomId" ColumnName="RoomId" />
-                <ScalarProperty Name="DomainName" ColumnName="DomainName" />
-                <ScalarProperty Name="FullName" ColumnName="FullName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1449,7 +1449,7 @@
               <ScalarProperty Name="Id" ColumnName="DeviceId" />
             </EndProperty>
           </AssociationSetMapping>
-        </EntityContainerMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

@@ -4,27 +4,27 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="d41f2510279848d8be653a92b6ff0efd" Name="Diagram1" ZoomLevel="47">
-        <EntityTypeShape EntityType="LITModel.Building" Width="1.5" PointX="5.25" PointY="16.25" />
-        <EntityTypeShape EntityType="LITModel.Cartridge" Width="1.5" PointX="3" PointY="5.75" />
-        <EntityTypeShape EntityType="LITModel.CartridgeModel" Width="1.5" PointX="5.25" PointY="10.125" />
-        <EntityTypeShape EntityType="LITModel.CartridgeReplacement_Log" Width="1.5" PointX="7.5" PointY="5.875" />
-        <EntityTypeShape EntityType="LITModel.CartridgeStatus" Width="1.5" PointX="0.75" PointY="3.5" />
-        <EntityTypeShape EntityType="LITModel.CartridgeType" Width="1.5" PointX="0.75" PointY="6.5" />
-        <EntityTypeShape EntityType="LITModel.Device" Width="1.5" PointX="9.75" PointY="9" />
-        <EntityTypeShape EntityType="LITModel.DeviceModel" Width="1.5" PointX="7.5" PointY="9.625" />
-        <EntityTypeShape EntityType="LITModel.DeviceType" Width="1.5" PointX="5.25" PointY="13.125" />
+      <Diagram DiagramId="d41f2510279848d8be653a92b6ff0efd" Name="Diagram1" ZoomLevel="121">
         <EntityTypeShape EntityType="LITModel.Employee" Width="1.5" PointX="9.75" PointY="5.625" />
-        <EntityTypeShape EntityType="LITModel.EmployeePosition" Width="1.5" PointX="12" PointY="4.125" />
-        <EntityTypeShape EntityType="LITModel.GivedDevices" Width="1.5" PointX="12" PointY="9.75" />
-        <EntityTypeShape EntityType="LITModel.GiveRequest" Width="1.5" PointX="12" PointY="6.875" />
-        <EntityTypeShape EntityType="LITModel.Laptop" Width="1.5" PointX="12" PointY="13" />
-        <EntityTypeShape EntityType="LITModel.PerfomanceRate" Width="1.5" PointX="9.75" PointY="14.125" />
-        <EntityTypeShape EntityType="LITModel.Printer" Width="1.5" PointX="5.25" PointY="5.75" />
-        <EntityTypeShape EntityType="LITModel.PrinterStatus" Width="1.5" PointX="3" PointY="2.5" />
-        <EntityTypeShape EntityType="LITModel.ReasonForRelpacement" Width="1.5" PointX="5.25" PointY="2.5" />
-        <EntityTypeShape EntityType="LITModel.Room" Width="1.5" PointX="7.5" PointY="15.875" />
-        <EntityTypeShape EntityType="LITModel.StatusDevice" Width="1.5" PointX="7.5" PointY="3.375" />
+        <EntityTypeShape EntityType="LITModel.Building" Width="1.5" PointX="5.625" PointY="6.125" />
+        <EntityTypeShape EntityType="LITModel.Cartridge" Width="1.5" PointX="3" PointY="14.75" />
+        <EntityTypeShape EntityType="LITModel.CartridgeModel" Width="1.5" PointX="5.25" PointY="19.125" />
+        <EntityTypeShape EntityType="LITModel.CartridgeReplacement_Log" Width="1.5" PointX="7.5" PointY="14.875" />
+        <EntityTypeShape EntityType="LITModel.CartridgeStatus" Width="1.5" PointX="0.75" PointY="12.5" />
+        <EntityTypeShape EntityType="LITModel.CartridgeType" Width="1.5" PointX="0.75" PointY="15.5" />
+        <EntityTypeShape EntityType="LITModel.Device" Width="1.5" PointX="10.125" PointY="11.5" />
+        <EntityTypeShape EntityType="LITModel.DeviceModel" Width="1.5" PointX="7.5" PointY="18.625" />
+        <EntityTypeShape EntityType="LITModel.DeviceType" Width="1.5" PointX="5.25" PointY="22.125" />
+        <EntityTypeShape EntityType="LITModel.EmployeePosition" Width="1.5" PointX="12.375" PointY="3.125" />
+        <EntityTypeShape EntityType="LITModel.GivedDevices" Width="1.5" PointX="12.375" PointY="9.375" />
+        <EntityTypeShape EntityType="LITModel.GiveRequest" Width="1.5" PointX="12.375" PointY="6.5" />
+        <EntityTypeShape EntityType="LITModel.Laptop" Width="1.5" PointX="12.375" PointY="12.5" />
+        <EntityTypeShape EntityType="LITModel.PerfomanceRate" Width="1.5" PointX="10.125" PointY="16.625" />
+        <EntityTypeShape EntityType="LITModel.Printer" Width="1.5" PointX="5.25" PointY="14.75" />
+        <EntityTypeShape EntityType="LITModel.PrinterStatus" Width="1.5" PointX="3" PointY="12" />
+        <EntityTypeShape EntityType="LITModel.ReasonForRelpacement" Width="1.5" PointX="5.25" PointY="11.5" />
+        <EntityTypeShape EntityType="LITModel.Room" Width="1.5" PointX="7.875" PointY="5.75" />
+        <EntityTypeShape EntityType="LITModel.StatusDevice" Width="1.5" PointX="7.875" PointY="11.375" />
         <AssociationConnector Association="LITModel.FK_Room_Building" />
         <AssociationConnector Association="LITModel.FK_Cartridge_CartridgeStatus" />
         <AssociationConnector Association="LITModel.FK_Cartridge_CartridgeType" />
@@ -47,7 +47,7 @@
         <AssociationConnector Association="LITModel.CartridgeCompatibility" />
         <AssociationConnector Association="LITModel.Employee_EmployeePosition" />
         <AssociationConnector Association="LITModel.GivedDevices_Device" />
-      </Diagram>
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>
