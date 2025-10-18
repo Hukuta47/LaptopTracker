@@ -39,7 +39,7 @@
 		</Border>
 
 
-		<Button Grid.Column="0" Grid.Row="1" FontSize="36" HorizontalAlignment="Left" Content="НАЗАД" Width="288" Margin="16,0,0,16" Click="Return_Click" />
-		<Button Grid.Column="1" Grid.Row="1" FontSize="36" HorizontalAlignment="Right" Content="ДАЛЕЕ" Width="288" Margin="0,0,16,16" Click="NextPage_Click"/>
+		<Button Grid.Column="0" Grid.Row="1" FontSize="36" HorizontalAlignment="Left" Content="НАЗАД" Width="307" Margin="16,0,0,16" Click="Return_Click" />
+		<Button Grid.Column="1" Grid.Row="1" FontSize="36" HorizontalAlignment="Right" Content="ДАЛЕЕ" Width="307" Margin="0,0,16,16" Click="NextPage_Click"/>
 	</Grid>
 </Page>

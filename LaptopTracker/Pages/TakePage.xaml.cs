@@ -25,5 +25,7 @@ namespace LaptopTracker.Pages
         {
             InitializeComponent();
         }
+        private void Return_Click(object sender, RoutedEventArgs e) => MainWindow.Frame_MainFrame.GoBack();
+
     }
 }

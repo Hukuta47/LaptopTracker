@@ -61,7 +61,7 @@
 				</Grid.Clip>
 
 				<Image Source="/Resources/NoImage.png" Stretch="None" Name="Image_NoImage" />
-				<Image Name="Image_PictureDevice" RenderOptions.BitmapScalingMode="HighQuality"/>
+				<Image Name="Image_PictureDevice" RenderOptions.BitmapScalingMode="HighQuality" Margin="16"/>
 
 
 			</Grid>

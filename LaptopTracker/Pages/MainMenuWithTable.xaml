@@ -9,42 +9,49 @@
       Title="MainMenuWithTable">
 
 	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="auto"/>
+		</Grid.RowDefinitions>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition/>
-			<ColumnDefinition/>
 		</Grid.ColumnDefinitions>
-		<Grid.RowDefinitions>
-			<RowDefinition/>
-			<RowDefinition/>
-		</Grid.RowDefinitions>
 
-		<Button FontSize="68" Content="ВЫДАТЬ" Grid.Column="0" Grid.Row="0" Margin="16, 16, 8, 8"/>
-		<Button FontSize="68" Content="ПРИНЯТЬ" Grid.Column="0" Grid.Row="1" Margin="16,8,8,16"/>
 
-		<Grid Grid.Column="1" Grid.RowSpan="2">
+		<Border  Grid.Column="0" Background="#67747F" CornerRadius="32" Margin="16,16,18,16" Padding="16">
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="auto"/>
+					<RowDefinition Height="8"/>
+					<RowDefinition Height="auto"/>
+					<RowDefinition Height="16"/>
+					<RowDefinition Height="auto"/>
+					<RowDefinition/>
+				</Grid.RowDefinitions>
 
-			<Grid.RowDefinitions>
-				<RowDefinition Height="auto"/>
-				<RowDefinition Height="*"/>
-			</Grid.RowDefinitions>
-			
-			<TextBlock Text="ВЫДАННЫЕ НОУТБУКИ" FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" Foreground="White" FontSize="32" Grid.Column="1" Grid.Row="0" Margin="8,16,16,16"/>
-			<DataGrid Grid.Row="1">
-				<DataGrid.Columns>
-					<DataGridTextColumn Width="*" Header="ФИО"/>
-					<DataGridTextColumn Width="*" Header="ОБОРУДОВАНИЕ"/>
-					<DataGridTemplateColumn Width="auto">
-						<DataGridTemplateColumn.CellTemplate>
-							<DataTemplate>
-								<Button/>
-							</DataTemplate>
-						</DataGridTemplateColumn.CellTemplate>
-					</DataGridTemplateColumn>
-				</DataGrid.Columns>
-			</DataGrid>
-		</Grid>
-		
-		
+				<TextBlock Grid.Row="0"  FontSize="36" Text="СПИСОК ВЫДАННЫХ УСТРОЙСТВ" FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" Foreground="White" TextAlignment="Center"/>
+				<Rectangle Grid.Row="2" Height="8" Fill="#FF505A63" RadiusX="4" RadiusY="4"/>
+				<Grid Grid.Row="4" Margin="10">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="170"/>
+						<ColumnDefinition Width="64"/>
+						<ColumnDefinition Width="242"/>
+						<ColumnDefinition Width="64"/>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="64"/>
+						<ColumnDefinition Width="80"/>
+					</Grid.ColumnDefinitions>
 
+					<TextBlock FontSize="36" FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" Foreground="White" TextAlignment="Center" Grid.Column="0" Text="ДАТА"/>
+					<TextBlock FontSize="36" FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" Foreground="White" TextAlignment="Center" Grid.Column="2" Text="КОЛИЧЕСТВО"/>
+					<TextBlock FontSize="36" FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" Foreground="White" TextAlignment="Center" Grid.Column="4" Text="КОММЕНТАРИЙ"/>
+				</Grid>
+				<ScrollViewer Grid.Row="4" PanningMode="VerticalOnly" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled" IsManipulationEnabled="True">
+					<StackPanel Name="StackPanel_ListRequests"/>
+				</ScrollViewer>
+
+			</Grid>
+		</Border>
+		<Button Grid.Column="1" Grid.Row="1" FontSize="68"  Content="ВЫДАТЬ" Margin="16,0,16,16" Click="Give_Click"/>
 	</Grid>
 </Page>
