@@ -18,7 +18,7 @@
 		</Grid.ColumnDefinitions>
 
 
-		<Border  Grid.Column="0" Background="#67747F" CornerRadius="32" Margin="16,16,18,16" Padding="16">
+		<Border  Grid.Column="0" Background="#67747F" CornerRadius="32" Margin="16" Padding="16">
 			<Grid>
 				<Grid.RowDefinitions>
 					<RowDefinition Height="auto"/>
@@ -44,9 +44,10 @@
 
 					<TextBlock FontSize="36" FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" Foreground="White" TextAlignment="Center" Grid.Column="0" Text="ДАТА"/>
 					<TextBlock FontSize="36" FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" Foreground="White" TextAlignment="Center" Grid.Column="2" Text="КОЛИЧЕСТВО"/>
-					<TextBlock FontSize="36" FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" Foreground="White" TextAlignment="Center" Grid.Column="4" Text="КОММЕНТАРИЙ"/>
+					<TextBlock FontSize="36" FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" Foreground="White" TextAlignment="Left" Grid.Column="4" Text="КОММЕНТАРИЙ"/>
 				</Grid>
-				<ScrollViewer Grid.Row="4" PanningMode="VerticalOnly" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled" IsManipulationEnabled="True">
+				
+				<ScrollViewer Grid.Row="5" PanningMode="VerticalOnly" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled" IsManipulationEnabled="True">
 					<StackPanel Name="StackPanel_ListRequests"/>
 				</ScrollViewer>
 

@@ -13,12 +13,21 @@ namespace LaptopTracker.Pages
         public GivePageResult(GiveRequest request)
         {
             InitializeComponent();
+            this.request = request;
             TextBlock_FinalMessage.Text = GenerateFinalMessage(request);
         }
 
         private void Give_Click(object sender, RoutedEventArgs e)
         {
-            //MessageBox.Show();
+            foreach (Device device in request.Device)
+            {
+                device.Laptop.Issued = true;
+            }
+            App.entities.GiveRequest.Add(request);
+            MessageBox.Show("Выдавай бля");
+            App.entities.SaveChanges();
+            MainWindow.Frame_MainFrame.Navigate(new MainMenu());
+            MainWindow.Frame_MainFrame.NavigationService.RemoveBackEntry();
         }
         string GenerateFinalMessage(GiveRequest request)
         {

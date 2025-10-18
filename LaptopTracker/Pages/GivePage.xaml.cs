@@ -20,12 +20,14 @@ namespace LaptopTracker.Pages
             List<Device> devices = App.entities.Device.Where(laptop => laptop.DeviceModel.DeviceTypeId == 9).OrderBy(laptop => laptop.DeviceModelId).ToList();
             List<Device> selectedDevices = new List<Device>();
 
-
             foreach (var device in devices)
             {
-                string Title = $"{device.DeviceModel.Manufacturer} {device.DeviceModel.Model}";
-                var card = new DeviceCard(device);
-                ItemsPanel.Children.Add(card);
+                if (device.Laptop.Issued == false)
+                {
+                    string Title = $"{device.DeviceModel.Manufacturer} {device.DeviceModel.Model}";
+                    var card = new DeviceCard(device);
+                    ItemsPanel.Children.Add(card);
+                }
             }
         }
 

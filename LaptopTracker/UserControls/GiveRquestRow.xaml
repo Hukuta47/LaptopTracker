@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:LaptopTracker.UserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="100" d:DesignWidth="1000">
+             Height="100" d:DesignWidth="1000">
 	<Border CornerRadius="42" Background="#7c8c99" Padding="10">
 		<Grid>
 			<Grid.ColumnDefinitions>
@@ -24,8 +24,8 @@
 			</StackPanel>
 
 			<TextBlock Name="TextBlock_Count" Foreground="White" Grid.Column="2" Text="52" FontSize="38" FontFamily="{StaticResource Clear Sans Infanity}" TextAlignment="Center" VerticalAlignment="Center"/>
-			<TextBlock Name="TextBlock_Comment" Foreground="White" Grid.Column="4" TextTrimming="CharacterEllipsis" Text="askdhaklsdlkhasdlhalhsdjlhaljkshdjklhasl" FontSize="38" VerticalAlignment="Center" FontFamily="{StaticResource Clear Sans Infanity}"/>
-			<Button Name="Button_Info" Grid.Column="6" Style="{StaticResource IconButton}" Click="Info_Click">
+			<TextBlock Name="TextBlock_Comment" Foreground="White" Grid.Column="4" TextTrimming="CharacterEllipsis" Text="*TEXT*" FontSize="38" VerticalAlignment="Center" FontFamily="{StaticResource Clear Sans Infanity}"/>
+			<Button Name="Button_Info" Grid.Column="6" Style="{StaticResource IconButton}" Click="Info_Click" HorizontalAlignment="Right" Width="80">
 				<Image Source="/Resources/Info.png" Width="48" />
 			</Button>
 		</Grid>

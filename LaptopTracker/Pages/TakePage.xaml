@@ -18,17 +18,17 @@
 		</Grid.ColumnDefinitions>
 
 
-		<Border  Grid.Column="0" Background="#67747F" CornerRadius="32" Margin="16,16,8,16" Padding="16">
+		<Border  Grid.Column="0" Background="#67747F" CornerRadius="32" Margin="16" Padding="16">
 			<Grid>
 				<Grid.RowDefinitions>
 					<RowDefinition Height="auto"/>
-					<RowDefinition Height="16"/>
+					<RowDefinition Height="8"/>
 					<RowDefinition Height="auto"/>
 					<RowDefinition Height="16"/>
 					<RowDefinition/>
 				</Grid.RowDefinitions>
 
-				<TextBlock Grid.Row="0"  FontSize="36" Text="ИНФОРМАЦИЯ О ВЫДАЧЕ" FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" Foreground="White" Margin="0,16,0,16" TextAlignment="Center"/>
+				<TextBlock Grid.Row="0"  FontSize="36" Text="ИНФОРМАЦИЯ О ВЫДАЧЕ" FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" Foreground="White" TextAlignment="Center"/>
 				<Rectangle Grid.Row="2" Height="8" Fill="#FF505A63" RadiusX="4" RadiusY="4"/>
 				<ScrollViewer Grid.Row="4" PanningMode="VerticalOnly" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled" IsManipulationEnabled="True">
 					<TextBlock FontSize="36" Name="TextBlock_FinalMessage" TextWrapping="Wrap" FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" Foreground="White" Margin="0,16,0,0"/>

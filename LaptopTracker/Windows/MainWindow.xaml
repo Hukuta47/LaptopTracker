@@ -5,6 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LaptopTracker"
         mc:Ignorable="d"
-        Title="LaptopTracker" Height="450" Width="800" Background="#505A63" WindowState="Maximized" WindowStyle="None" >
+        Title="LaptopTracker" Height="768" Width="1366" Background="#505A63" WindowStyle="None" WindowStartupLocation="CenterScreen">
 	<Frame Name="MainFrame" NavigationUIVisibility="Hidden"/>
 </Window>
