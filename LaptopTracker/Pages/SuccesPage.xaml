@@ -1,0 +1,18 @@
+﻿<Page x:Class="LaptopTracker.Pages.SuccesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LaptopTracker.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="768" d:DesignWidth="1366"
+      Title="SuccesPage">
+
+	<StackPanel VerticalAlignment="Center">
+		<Image Source="/Resources/SuccesIcon.png" Width="320"/>
+		<Rectangle Height="32"/>
+		<TextBlock Text="ОПЕРАЦИЯ УСПЕШНО ЗАВЕРШЕНА" FontSize="68" TextWrapping="Wrap" FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" Foreground="White" TextAlignment="Center"/>
+		<Rectangle Height="84"/>
+		<TextBlock Name="Textblock_TimeMessage" Text="ВОЗВРАЩЕНИЕ НА НАЧАЛЬНУЮ СТРАНИЦУ ЧЕРЕЗ 5..." TextWrapping="Wrap" FontSize="32" FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" Foreground="White" TextAlignment="Center"/>
+	</StackPanel>
+</Page>

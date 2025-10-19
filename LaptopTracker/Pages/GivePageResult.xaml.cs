@@ -24,10 +24,9 @@ namespace LaptopTracker.Pages
                 device.Laptop.Issued = true;
             }
             App.entities.GiveRequest.Add(request);
-            MessageBox.Show("Выдавай бля");
             App.entities.SaveChanges();
-            MainWindow.Frame_MainFrame.Navigate(new MainMenu());
-            MainWindow.Frame_MainFrame.NavigationService.RemoveBackEntry();
+            MainWindow.Frame_MainFrame.Navigate(new SuccesPage());
+            
         }
         string GenerateFinalMessage(GiveRequest request)
         {

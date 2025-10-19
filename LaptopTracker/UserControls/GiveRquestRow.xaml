@@ -19,14 +19,14 @@
 			</Grid.ColumnDefinitions>
 
 			<StackPanel Grid.Column="0">
-				<Label Name="Label_Date" Foreground="White" Content="10.06.25" FontSize="38" FontFamily="{StaticResource Clear Sans Infanity}" Margin="0,-8,0,0" HorizontalAlignment="Center"  />
+				<Label Name="Label_Date" Foreground="White" Content="10.06.25" FontSize="38" FontFamily="{StaticResource Clear Sans Infanity}" Margin="0,-12,0,0" HorizontalAlignment="Center"  />
 				<Label Name="Label_Time" Foreground="White" Content="10:04" FontSize="38" FontFamily="{StaticResource Clear Sans Infanity}" Margin="0,-23,0,0" HorizontalAlignment="Center"  />
 			</StackPanel>
 
 			<TextBlock Name="TextBlock_Count" Foreground="White" Grid.Column="2" Text="52" FontSize="38" FontFamily="{StaticResource Clear Sans Infanity}" TextAlignment="Center" VerticalAlignment="Center"/>
 			<TextBlock Name="TextBlock_Comment" Foreground="White" Grid.Column="4" TextTrimming="CharacterEllipsis" Text="*TEXT*" FontSize="38" VerticalAlignment="Center" FontFamily="{StaticResource Clear Sans Infanity}"/>
 			<Button Name="Button_Info" Grid.Column="6" Style="{StaticResource IconButton}" Click="Info_Click" HorizontalAlignment="Right" Width="80">
-				<Image Source="/Resources/Info.png" Width="48" />
+				<Image Source="/Resources/Info.png" Width="48"/>
 			</Button>
 		</Grid>
 	</Border>

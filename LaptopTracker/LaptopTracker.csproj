@@ -130,6 +130,12 @@
     <Compile Include="Pages\Load.xaml.cs">
       <DependentUpon>Load.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\SuccesPage.xaml.cs">
+      <DependentUpon>SuccesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\СharacteristicPage.xaml.cs">
+      <DependentUpon>СharacteristicPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\DeviceCard.xaml.cs">
       <DependentUpon>DeviceCard.xaml</DependentUpon>
     </Compile>
@@ -142,6 +148,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Load.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SuccesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\СharacteristicPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -245,7 +259,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Resource Include="Resources\2022-03-30_02-17-18.webp" />
     <Resource Include="Resources\ClearSansInfanity-Bold.ttf" />
   </ItemGroup>
   <ItemGroup>
@@ -263,9 +276,9 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\SuccesIcon.png" />
     <Resource Include="Resources\Info.png" />
     <Resource Include="Resources\NoImage.png" />
-    <Resource Include="Resources\c06509158.png" />
     <Resource Include="Resources\Chevron left.png" />
     <Resource Include="Resources\MarkSelection.png" />
   </ItemGroup>

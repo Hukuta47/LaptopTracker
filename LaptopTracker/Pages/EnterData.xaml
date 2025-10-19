@@ -12,18 +12,20 @@
 		<Grid.RowDefinitions>
 			<RowDefinition Height="*"/>
 			<RowDefinition Height="auto"/>
+			<RowDefinition Height="auto"/>
 		</Grid.RowDefinitions>
-		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="auto"/>
-			<ColumnDefinition/>
-		</Grid.ColumnDefinitions>
 
 
-		<Border  Grid.Column="0" Background="#67747F" CornerRadius="32" Margin="16,16,8,16" Width="512">
-			<StackPanel>
-				<TextBlock FontSize="36" Text="КТО ВЫДАЛ" FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" Foreground="White" Margin="16,16,0,0"/>
-				<ComboBox FontSize="36" FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" Name="Combobox_SelectEmployee" DisplayMemberPath="FirstAndSecondName" SelectedValuePath="Id"/>
-			</StackPanel>
+		<Border  Grid.Column="0" Grid.Row="1" Background="#67747F" CornerRadius="52" Margin="16,16,8,16">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="auto"/>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+				
+				<TextBlock Grid.Column="0" FontSize="36" Text="КТО ВЫДАЛ" FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" Foreground="White" Margin="16,16,0,16"/>
+				<ComboBox Grid.Column="1" FontSize="36" FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" Name="Combobox_SelectEmployee" DisplayMemberPath="FirstAndSecondName" SelectedValuePath="Id"/>
+			</Grid>
 		</Border>
 		<Border Grid.Column="1" Background="#67747F" CornerRadius="32" Margin="8,16,16,16" >
 			<Grid>
@@ -33,13 +35,13 @@
 				</Grid.RowDefinitions>
 
 				<TextBlock Grid.Row="0" FontSize="36" Text="КОММЕНТАРИЙ" FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" Foreground="White" Margin="16,16,0,0" />
-				<TextBox Grid.Row="1" Name="Textbox_EnterComment" Padding="16" AcceptsReturn="True" TextWrapping="Wrap" FontSize="36" FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" VerticalScrollBarVisibility="Hidden"/>
+				<TextBox Grid.Row="1" Name="Textbox_EnterComment" Padding="16" AcceptsReturn="True" TextWrapping="Wrap" FontSize="36" FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" VerticalScrollBarVisibility="Hidden" CharacterCasing="Upper"/>
 
 			</Grid>
 		</Border>
 
 
-		<Button Grid.Column="0" Grid.Row="1" FontSize="36" HorizontalAlignment="Left" Content="НАЗАД" Width="307" Margin="16,0,0,16" Click="Return_Click" />
-		<Button Grid.Column="1" Grid.Row="1" FontSize="36" HorizontalAlignment="Right" Content="ДАЛЕЕ" Width="307" Margin="0,0,16,16" Click="NextPage_Click"/>
+		<Button Grid.Column="0" Grid.Row="2" FontSize="36" HorizontalAlignment="Left" Content="НАЗАД" Width="307" Margin="16,0,0,16" Click="Return_Click" />
+		<Button Grid.Column="1" Grid.Row="2" FontSize="36" HorizontalAlignment="Right" Content="ДАЛЕЕ" Width="307" Margin="0,0,16,16" Click="NextPage_Click"/>
 	</Grid>
 </Page>

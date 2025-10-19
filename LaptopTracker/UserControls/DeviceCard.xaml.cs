@@ -328,7 +328,7 @@ namespace LaptopTracker.UserControls
             mouseActive = false;
         }
 
-        private void ToggleSelection()
+        public void ToggleSelection()
         {
             isSelected = !isSelected;
             var sb = (Storyboard)Resources[isSelected ? "ShowCheckAnimation" : "HideCheckAnimation"];
@@ -338,7 +338,7 @@ namespace LaptopTracker.UserControls
 
         private void ShowInfo()
         {
-            MessageBox.Show(Info ?? "Нет дополнительной информации", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
+            MainWindow.Frame_MainFrame.Navigate(new СharacteristicPage(this));
         }
     }
 }
