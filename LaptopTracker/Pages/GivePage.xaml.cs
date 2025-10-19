@@ -62,7 +62,7 @@ namespace LaptopTracker.Pages
 
             foreach (DeviceCard deviceCard in selectedDevices)
             {
-                devices.Add(App.entities.Device.First(device => device.Id == deviceCard.DeviceId));
+                devices.Add(App.entities.Device.First(device => device.Id == deviceCard.Device.Id));
             }
 
             MainWindow.Frame_MainFrame.Navigate(new EnterData(devices));

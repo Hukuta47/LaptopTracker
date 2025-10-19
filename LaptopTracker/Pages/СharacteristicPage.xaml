@@ -18,7 +18,7 @@
 			<ColumnDefinition Width="*"/>
 		</Grid.ColumnDefinitions>
 
-		<Grid Background="White" Margin="16,16,0,0" VerticalAlignment="Top" Width="305.523333333333" Height="308" >
+		<Grid Background="White" Margin="16,16,0,0" VerticalAlignment="Top" Width="305.523333333333" Height="308" Name="Grid_ImageIcon">
 			<Grid.Clip>
 				<RectangleGeometry Rect="0,0, 305.523333333333, 305.523333333333" RadiusX="52" RadiusY="52"/>
 			</Grid.Clip>
@@ -41,7 +41,7 @@
 				<TextBlock Grid.Row="0"  FontSize="36" Text="ХАРАКТЕРИСТИКИ" FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" Foreground="White" TextAlignment="Left" Margin="10,0,0,0"/>
 				<Rectangle Grid.Row="2" Height="8" Fill="#FF505A63" RadiusX="4" RadiusY="4"/>
 				<ScrollViewer Grid.Row="4" PanningMode="VerticalOnly" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled" IsManipulationEnabled="True">
-					<TextBlock FontSize="36" Name="TextBlock_FinalMessage" TextWrapping="Wrap" FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" Foreground="White"/>
+					<TextBlock FontSize="36" Name="TextBlock_Description" TextWrapping="Wrap" FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" Foreground="White"/>
 				</ScrollViewer>
 			</Grid>
 		</Border>

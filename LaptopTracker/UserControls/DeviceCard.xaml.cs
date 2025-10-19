@@ -29,7 +29,7 @@ namespace LaptopTracker.UserControls
         private DateTime lastMouseTime = DateTime.MinValue;
 
         public string Info { get; }
-        public int DeviceId { get; }
+        public Device Device { get; }
 
 
         
@@ -37,16 +37,10 @@ namespace LaptopTracker.UserControls
         {
             InitializeComponent();
 
-            
 
+            this.Device = device;
             TextBlock_Title.Text = $"{device.DeviceModel.Manufacturer} {device.DeviceModel.Model}";
             TextBlock_ShortName.Text = device.ShortName;
-            DeviceId = device.Id;
-
-
-
-
-
 
             if (!string.IsNullOrEmpty(device.DeviceModel.Image))
             {
