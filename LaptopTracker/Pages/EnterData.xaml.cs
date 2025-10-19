@@ -36,8 +36,6 @@ namespace LaptopTracker.Pages
                 WhoGivedEmployeeId = (int)Combobox_SelectEmployee.SelectedValue,
             };
 
-
-
             MainWindow.Frame_MainFrame.Navigate(new GivePageResult(giveRequest));
         }
 
