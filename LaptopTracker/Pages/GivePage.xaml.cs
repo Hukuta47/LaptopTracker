@@ -33,7 +33,7 @@ namespace LaptopTracker.Pages
 
         private void Return_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow.Frame_MainFrame.GoBack();
+            MainWindow.GoToMainPage();
         }
 
         public static void OnSelectElement()

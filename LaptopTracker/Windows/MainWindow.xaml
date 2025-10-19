@@ -6,5 +6,16 @@
         xmlns:local="clr-namespace:LaptopTracker"
         mc:Ignorable="d"
         Title="LaptopTracker" MinWidth="845" MinHeight="597" Height="768" Width="1366" Background="#505A63" WindowStyle="None" WindowStartupLocation="CenterScreen">
-	<Frame Name="MainFrame" NavigationUIVisibility="Hidden"/>
+	<Grid>
+		<StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Orientation="Horizontal">
+
+			<TextBlock Text="ОШИБКА" Grid.Column="0" FontSize="52" FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" Foreground="White" />
+			<Rectangle Width="16"/>
+			<Image Source="/Resources/X circle.png" Width="48" Grid.Column="1"/>
+
+			
+		</StackPanel>
+		<Frame Name="MainFrame" Navigating="Frame_Navigating" Navigated="Frame_Navigated" NavigationUIVisibility="Hidden"/>
+
+	</Grid>
 </Window>

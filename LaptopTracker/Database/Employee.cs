@@ -26,7 +26,7 @@ namespace LaptopTracker.Database
         public string FullName { get; set; }
         public string DomainName { get; set; }
         public Nullable<int> RoomId { get; set; }
-        public string FirstAndSecondName { get { return $"{FullName.Split(' ')[0]} {FullName.Split(' ')[1]}"; } }
+        public string FirstAndSecondName { get { return $"{FullName.Split(' ')[0]} {FullName.Split(' ')[1]}".ToUpper(); } set; }
 
 
         public virtual Room Room { get; set; }

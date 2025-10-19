@@ -23,8 +23,11 @@
 					<ColumnDefinition Width="*"/>
 				</Grid.ColumnDefinitions>
 				
-				<TextBlock Grid.Column="0" FontSize="36" Text="КТО ВЫДАЛ" FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" Foreground="White" Margin="16,16,0,16"/>
-				<ComboBox Grid.Column="1" FontSize="36" FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" Name="Combobox_SelectEmployee" DisplayMemberPath="FirstAndSecondName" SelectedValuePath="Id"/>
+				<TextBlock Grid.Column="0" FontSize="36" Text="КТО ВЫДАЛ:" FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" Foreground="White" Margin="26,16,0,16" VerticalAlignment="Center"/>
+				<ComboBox Grid.Column="1" Margin="16" FontSize="36" FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" Name="Combobox_SelectEmployee" DisplayMemberPath="FirstAndSecondName" SelectedValuePath="Id"/>
+
+
+
 			</Grid>
 		</Border>
 		<Border Grid.Column="1" Background="#67747F" CornerRadius="32" Margin="8,16,16,16" >

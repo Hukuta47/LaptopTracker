@@ -46,15 +46,7 @@ namespace LaptopTracker.Pages
             sb.AppendLine($"Производитель: {deviceCard.Device.DeviceModel.Manufacturer}");
             sb.AppendLine($"Инвентарный номер: {deviceCard.Device.InventoryNumber}");
             sb.AppendLine($"Серийный номер: {deviceCard.Device.SerialNumber}");
-            sb.AppendLine($"Короткое имя (имя хоста net-bios): {deviceCard.Device.ShortName}");
-
-            
-
-
-
-
-
-
+            sb.AppendLine($"Короткое имя (имя хоста netbios): {deviceCard.Device.ShortName}");
 
             return sb.ToString().ToUpper();
         }
