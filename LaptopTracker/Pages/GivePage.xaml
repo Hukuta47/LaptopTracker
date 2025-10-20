@@ -9,19 +9,27 @@
       Title="GivePage">
 
 	<Grid>
-		<!--<Grid Background="#000000" Opacity="0.5" Panel.ZIndex="1" Name="Panel_SubstrateBackground"/>-->
 		<ScrollViewer x:Name="MainScroll" PanningMode="VerticalOnly" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled" IsManipulationEnabled="True">
 			<StackPanel>
-				<Grid Height="106"/>
+				<Grid Height="93"/>
 				<WrapPanel Name="ItemsPanel" Orientation="Horizontal" HorizontalAlignment="Center" Margin="16"/>
-				<Grid Height="145"/>
+				<Grid Height="121"/>
 			</StackPanel>
 		</ScrollViewer>
 
-		<Button HorizontalAlignment="Center" VerticalAlignment="Bottom" Content="ПРОДОЛЖИТЬ" FontSize="36" Margin="0,0,0,16" Click="NextPage_Click" Name="Button_Next"/>
-		<Button HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="36" Margin="16,16,0,16" Style="{StaticResource IconButton}" Click="Return_Click">
-			<Image Source="/Resources/Chevron left.png" Width="48" />
-		</Button>
+		<Grid VerticalAlignment="Top">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="auto"/>
+				<ColumnDefinition/>
+				<ColumnDefinition Width="auto"/>
+			</Grid.ColumnDefinitions>
+
+			<Button Grid.Column="0" Style="{StaticResource IconButton}" FontSize="36" Margin="16"  Click="Return_Click" Content="НАЗАД"/>
+			<TextBox Name="TextBox_Search" Grid.Column="1" Margin="0,16,0,16" VerticalAlignment="Top" Style="{StaticResource SearchPanel}" TextChanged="TextBox_Search_TextChanged"/>
+			<ComboBox Width="525" Grid.Column="2" VerticalAlignment="Top" Margin="16,16,16,16" Name="ComboBox_MethodSort" SelectedIndex="0" FontSize="36" FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" SelectionChanged="ComboBox_MethodSort_SelectionChanged"/>
+
+		</Grid>
+		<Button HorizontalAlignment="Center" VerticalAlignment="Bottom" Content="ПРОДОЛЖИТЬ" FontSize="36" Margin="0,0,0,-116" Click="NextPage_Click" Name="Button_Next"/>
 
 	</Grid>
 </Page>

@@ -38,7 +38,7 @@
 	</UserControl.Resources>
 
 
-	<Grid Margin="16">
+	<Grid Margin="8">
 
 		<Grid.RenderTransform>
 			<ScaleTransform x:Name="CheckScale" ScaleX="1" ScaleY="1" />
@@ -46,18 +46,18 @@
 		<Grid.RenderTransformOrigin>0.5,0.5</Grid.RenderTransformOrigin>
 
 		<Grid Panel.ZIndex="1"  Opacity="0" Name="SelectBorder">
-			<Border BorderBrush="#ff4900" BorderThickness="8" CornerRadius="32" Width="288" Height="382"/>
+			<Border BorderBrush="#ff4900" BorderThickness="8" CornerRadius="52" Width="288" Height="382"/>
 			<Image Source="/Resources/MarkSelection.png" Width="68" HorizontalAlignment="Left" VerticalAlignment="Top" />
 		</Grid>
 		
 		<StackPanel  Width="288" Height="382" Background="#67747f">
 			<StackPanel.Clip>
-				<RectangleGeometry Rect="0,0,288, 382" RadiusX="36" RadiusY="36"/>
+				<RectangleGeometry Rect="0,0,288, 382" RadiusX="52" RadiusY="52"/>
 			</StackPanel.Clip>
 
 			<Grid Width="256" Height="256" Margin="8,16,8,8" Background="White">
 				<Grid.Clip>
-					<RectangleGeometry RadiusX="20" RadiusY="20" Rect="0,0,256,256"/>
+					<RectangleGeometry RadiusX="36" RadiusY="36" Rect="0,0,256,256"/>
 				</Grid.Clip>
 
 				<Image Source="/Resources/NoImage.png" Stretch="None" Name="Image_NoImage" />

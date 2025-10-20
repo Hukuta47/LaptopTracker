@@ -129,9 +129,6 @@
     <Compile Include="Pages\GivePageResult.xaml.cs">
       <DependentUpon>GivePageResult.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Load.xaml.cs">
-      <DependentUpon>Load.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\SuccesPage.xaml.cs">
       <DependentUpon>SuccesPage.xaml</DependentUpon>
     </Compile>
@@ -146,10 +143,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\GivePageResult.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Load.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

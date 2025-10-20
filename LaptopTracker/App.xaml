@@ -28,15 +28,15 @@
 		</Style>
 
 		<Style TargetType="Button" x:Key="IconButton" >
-			<Setter Property="FontSize" Value="32"/>
+			<Setter Property="FontSize" Value="24"/>
 			<Setter Property="FontFamily" Value="{StaticResource Clear Sans Infanity}"/>
 			<Setter Property="Foreground" Value="White"/>
 			<Setter Property="BorderThickness" Value="0"/>
-			<Setter Property="Padding" Value="14"/>
+			<Setter Property="Padding" Value="36,16,36,16"/>
 			<Setter Property="Template">
 				<Setter.Value>
 					<ControlTemplate TargetType="Button">
-						<Border x:Name="border" Padding="{TemplateBinding Padding}" Background="{StaticResource DefaultColor}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="32">
+						<Border x:Name="border" Padding="{TemplateBinding Padding}" Background="{StaticResource DefaultColor}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="36">
 							<ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" RecognizesAccessKey="True" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" ContentStringFormat="{TemplateBinding ContentStringFormat}"/>
 						</Border>
 					</ControlTemplate>
@@ -322,6 +322,21 @@
 			<Style.Resources>
 				<Style TargetType="Border">
 					<Setter Property="CornerRadius" Value="36"/>
+				</Style>
+			</Style.Resources>
+		</Style>
+
+		<Style TargetType="TextBox" x:Key="SearchPanel">
+			<Setter Property="FontSize" Value="36"/>
+			<Setter Property="FontFamily" Value="{StaticResource Clear Sans Infanity}"/>
+			<Setter Property="Foreground" Value="#000000"/>
+			<Setter Property="BorderBrush" Value="#ff4900"/>
+			<Setter Property="Background" Value="#ffffff"/>
+			<Setter Property="BorderThickness" Value="8"/>
+			<Setter Property="Padding" Value="8"/>
+			<Style.Resources>
+				<Style TargetType="Border">
+					<Setter Property="CornerRadius" Value="32"/>
 				</Style>
 			</Style.Resources>
 		</Style>

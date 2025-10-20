@@ -30,15 +30,15 @@
 
 			</Grid>
 		</Border>
-		<Border Grid.Column="1" Background="#67747F" CornerRadius="32" Margin="8,16,16,16" >
+		<Border Grid.Column="1" Background="#67747F" CornerRadius="52" Margin="8,16,16,0" >
 			<Grid>
 				<Grid.RowDefinitions>
 					<RowDefinition Height="auto"/>
 					<RowDefinition/>
 				</Grid.RowDefinitions>
 
-				<TextBlock Grid.Row="0" FontSize="36" Text="КОММЕНТАРИЙ" FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" Foreground="White" Margin="16,16,0,0" />
-				<TextBox Grid.Row="1" Margin="16" Name="Textbox_EnterComment" Padding="16" AcceptsReturn="True" TextWrapping="Wrap" FontSize="36" FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" VerticalScrollBarVisibility="Hidden" CharacterCasing="Upper"/>
+				<TextBlock Grid.Row="0" FontSize="36" Text="КОММЕНТАРИЙ" FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" Foreground="White" Margin="26,16,0,0" />
+				<TextBox Grid.Row="1" Margin="16" Name="Textbox_EnterComment" Padding="16" AcceptsReturn="True" TextWrapping="Wrap" FontSize="36" FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" VerticalScrollBarVisibility="Hidden" CharacterCasing="Upper" TextChanged="Textbox_EnterComment_TextChanged"/>
 
 			</Grid>
 		</Border>

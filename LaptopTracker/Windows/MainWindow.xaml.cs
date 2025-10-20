@@ -79,7 +79,7 @@ namespace LaptopTracker
         }
         public static void GoToMainPage()
         {
-            MainWindow.Frame_MainFrame.NavigationService.RemoveBackEntry();
+            Frame_MainFrame.NavigationService.RemoveBackEntry();
             if (App.entities.Laptop.Any(Laptop => Laptop.Issued == true))
             {
                 Frame_MainFrame.Navigate(new MainMenuWithTable());
@@ -102,7 +102,7 @@ namespace LaptopTracker
             {
                 From = new Thickness(16, -152, 16, 0),
                 To = new Thickness(16, 16, 16, 0),
-                Duration = TimeSpan.FromMilliseconds(150),
+                Duration = TimeSpan.FromMilliseconds(300),
                 EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
             };
 
@@ -121,7 +121,7 @@ namespace LaptopTracker
             {
                 From = new Thickness(16, 16, 16, 0),
                 To = new Thickness(16, -152, 16, 0),
-                Duration = TimeSpan.FromMilliseconds(150),
+                Duration = TimeSpan.FromMilliseconds(300),
                 EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
             };
 
