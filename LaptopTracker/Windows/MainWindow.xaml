@@ -7,14 +7,21 @@
         mc:Ignorable="d"
         Title="LaptopTracker" MinWidth="845" MinHeight="597" Height="768" Width="1366" Background="#505A63" WindowStyle="None" WindowStartupLocation="CenterScreen">
 	<Grid>
-		<StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Orientation="Horizontal">
+		<Border Name="Border_Message" Panel.ZIndex="10" Background="#BF0000" HorizontalAlignment="Center" CornerRadius="52" Margin="16,-152,16,0" VerticalAlignment="Top">
+			<Grid Margin="52">
 
-			<TextBlock Text="ОШИБКА" Grid.Column="0" FontSize="52" FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" Foreground="White" />
-			<Rectangle Width="16"/>
-			<Image Source="/Resources/X circle.png" Width="48" Grid.Column="1"/>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="auto"/>
+				</Grid.ColumnDefinitions>
+				
+				<TextBlock Name="TextBlock_Message" Text="" TextWrapping="Wrap" Grid.Column="0" Margin="0,-14,0,-16" FontSize="52" FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" Foreground="White"/>
+				<Rectangle Width="16"/>
+				<Image Source="/Resources/X circle.png" Width="48" Grid.Column="1" Margin="16,0,0,0"/>
+			</Grid>
+		</Border>
+		
 
-			
-		</StackPanel>
 		<Frame Name="MainFrame" Navigating="Frame_Navigating" Navigated="Frame_Navigated" NavigationUIVisibility="Hidden"/>
 
 	</Grid>

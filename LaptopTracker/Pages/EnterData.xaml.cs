@@ -28,15 +28,26 @@ namespace LaptopTracker.Pages
 
         private void NextPage_Click(object sender, RoutedEventArgs e)
         {
-            GiveRequest giveRequest = new GiveRequest()
+            if (Combobox_SelectEmployee.SelectedItem == null)
             {
-                Comment = Textbox_EnterComment.Text,
-                Device = SelectedDevicesToGive,
-                GivedDate = DateTime.Now,
-                WhoGivedEmployeeId = (int)Combobox_SelectEmployee.SelectedValue,
-            };
+                MainWindow.ShowMessage("Поле выбора \"Кто выдал\" пустое");
+            }
+            else if (string.IsNullOrWhiteSpace(Textbox_EnterComment.Text) || string.IsNullOrEmpty(Textbox_EnterComment.Text))
+            {
+                MainWindow.ShowMessage("Поле описания введено не корректно.");
+            }
+            else
+            {
+                GiveRequest giveRequest = new GiveRequest()
+                {
+                    Comment = Textbox_EnterComment.Text,
+                    Device = SelectedDevicesToGive,
+                    GivedDate = DateTime.Now,
+                    WhoGivedEmployeeId = (int)Combobox_SelectEmployee.SelectedValue,
+                };
 
-            MainWindow.Frame_MainFrame.Navigate(new GivePageResult(giveRequest));
+                MainWindow.Frame_MainFrame.Navigate(new GivePageResult(giveRequest));
+            }   
         }
 
         private void Return_Click(object sender, RoutedEventArgs e) => MainWindow.Frame_MainFrame.GoBack();

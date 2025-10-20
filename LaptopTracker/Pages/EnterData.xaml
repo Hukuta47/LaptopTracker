@@ -38,7 +38,7 @@
 				</Grid.RowDefinitions>
 
 				<TextBlock Grid.Row="0" FontSize="36" Text="КОММЕНТАРИЙ" FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" Foreground="White" Margin="16,16,0,0" />
-				<TextBox Grid.Row="1" Name="Textbox_EnterComment" Padding="16" AcceptsReturn="True" TextWrapping="Wrap" FontSize="36" FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" VerticalScrollBarVisibility="Hidden" CharacterCasing="Upper"/>
+				<TextBox Grid.Row="1" Margin="16" Name="Textbox_EnterComment" Padding="16" AcceptsReturn="True" TextWrapping="Wrap" FontSize="36" FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" VerticalScrollBarVisibility="Hidden" CharacterCasing="Upper"/>
 
 			</Grid>
 		</Border>

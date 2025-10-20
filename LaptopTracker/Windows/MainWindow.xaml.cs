@@ -1,6 +1,8 @@
 ﻿using LaptopTracker.Pages;
 using System;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Animation;
@@ -13,10 +15,16 @@ namespace LaptopTracker
         private bool isNavigating;
 
         static public Frame Frame_MainFrame;
+        static private TextBlock staticTextBlock_Message;
+        static private Border staticBorder_Message;
+
+        private static CancellationTokenSource _cts;
         public MainWindow()
         {
             InitializeComponent();
             Frame_MainFrame = MainFrame;
+            staticBorder_Message = Border_Message;
+            staticTextBlock_Message = TextBlock_Message;
             if (App.entities.Laptop.Any(Laptop => Laptop.Issued == true))
             {
                 MainFrame.Navigate(new MainMenuWithTable());
@@ -45,10 +53,8 @@ namespace LaptopTracker
 
             fadeOut.Completed += (s, _) =>
             {
-                // Навигация после завершения анимации
                 MainFrame.Navigate(e.Uri ?? e.Content);
 
-                // Когда страница загрузится — запускаем обратную анимацию
                 MainFrame.Navigated += Frame_Navigated;
             };
 
@@ -64,15 +70,13 @@ namespace LaptopTracker
                 From = 0,
                 To = 1,
                 Duration = TimeSpan.FromMilliseconds(150),
-                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseIn }
+                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
             };
 
             fadeIn.Completed += (s, _) => isNavigating = false;
 
             MainFrame.BeginAnimation(UIElement.OpacityProperty, fadeIn);
         }
-
-
         public static void GoToMainPage()
         {
             MainWindow.Frame_MainFrame.NavigationService.RemoveBackEntry();
@@ -85,5 +89,44 @@ namespace LaptopTracker
                 Frame_MainFrame.Navigate(new MainMenu());
             }
         }
+
+        public static async void ShowMessage(string textMessage)
+        {
+            _cts?.Cancel();
+            _cts = new CancellationTokenSource();
+            var token = _cts.Token;
+
+            staticTextBlock_Message.Text = textMessage.ToUpper();
+
+            var moveIn = new ThicknessAnimation
+            {
+                From = new Thickness(16, -152, 16, 0),
+                To = new Thickness(16, 16, 16, 0),
+                Duration = TimeSpan.FromMilliseconds(150),
+                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            staticBorder_Message.BeginAnimation(MarginProperty, moveIn);
+
+            try
+            {
+                await Task.Delay(3000, token);
+            }
+            catch (TaskCanceledException)
+            {
+                return;
+            }
+
+            var moveOut = new ThicknessAnimation
+            {
+                From = new Thickness(16, 16, 16, 0),
+                To = new Thickness(16, -152, 16, 0),
+                Duration = TimeSpan.FromMilliseconds(150),
+                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            staticBorder_Message.BeginAnimation(MarginProperty, moveOut);
+        }
+
     }
 }
