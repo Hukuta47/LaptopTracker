@@ -15,8 +15,9 @@ namespace LaptopTracker.Database
     public partial class Laptop
     {
         public int Id { get; set; }
-        public Nullable<int> PerfomanceRateId { get; set; }
-        public Nullable<bool> Issued { get; set; }
+        public double PerfomanceRateValue { get; set; }
+        public bool Issued { get; set; }
+        public int PerfomanceRateId { get; set; }
     
         public virtual Device Device { get; set; }
         public virtual PerfomanceRate PerfomanceRate { get; set; }

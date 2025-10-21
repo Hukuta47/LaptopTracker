@@ -25,7 +25,6 @@ namespace LaptopTracker.Database
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Employee> Employee { get; set; }
         public virtual DbSet<Building> Building { get; set; }
         public virtual DbSet<Cartridge> Cartridge { get; set; }
         public virtual DbSet<CartridgeModel> CartridgeModel { get; set; }
@@ -35,6 +34,7 @@ namespace LaptopTracker.Database
         public virtual DbSet<Device> Device { get; set; }
         public virtual DbSet<DeviceModel> DeviceModel { get; set; }
         public virtual DbSet<DeviceType> DeviceType { get; set; }
+        public virtual DbSet<Employee> Employee { get; set; }
         public virtual DbSet<EmployeePosition> EmployeePosition { get; set; }
         public virtual DbSet<GivedDevices> GivedDevices { get; set; }
         public virtual DbSet<GiveRequest> GiveRequest { get; set; }
