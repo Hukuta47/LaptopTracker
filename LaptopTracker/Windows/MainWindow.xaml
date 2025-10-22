@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LaptopTracker"
         mc:Ignorable="d"
-        Title="LaptopTracker" MinWidth="845" MinHeight="597" Height="768" Width="1366" Background="#505A63" WindowStyle="None"  ResizeMode="NoResize">
+        Title="LaptopTracker" MinWidth="845" MinHeight="597" Height="768" Width="1366" Background="#505A63" WindowStyle="None" WindowState="Maximized" ResizeMode="NoResize">
 	<Grid>
 		<Border Name="Border_Message" Panel.ZIndex="10" Background="#BF0000" HorizontalAlignment="Center" CornerRadius="52" Margin="16,-152,16,0" VerticalAlignment="Top" >
 			<Grid Margin="52">

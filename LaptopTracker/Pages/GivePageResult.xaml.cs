@@ -35,23 +35,15 @@ namespace LaptopTracker.Pages
         }
         string GenerateFinalMessage(GiveRequest request)
         {
-            var devicesGrouped = request.Device.GroupBy(d => d.DeviceModelId).Select(
-                g => new
-                {
-                    Manufacturer = g.First().DeviceModel.Manufacturer,
-                    Model = g.First().DeviceModel.Model,
-                    Count = g.Count()
-                }).OrderBy(g => g.Manufacturer).ThenBy(g => g.Model);
-
             StringBuilder stringBuilder = new StringBuilder();
 
             var giver = App.entities.Employee.First(e => e.Id == request.WhoGivedEmployeeId).FirstAndSecondName;
             stringBuilder.AppendLine($"ВЫДАЕТ НОУТБУКИ: {giver}".ToUpper());
             stringBuilder.AppendLine("НОУТБУКИ:".ToUpper());
 
-            foreach (var group in devicesGrouped)
+            foreach (var device in request.Device.OrderBy(Device => Device.ShortName))
             {
-                stringBuilder.AppendLine($"    - {group.Manufacturer} {group.Model} (кол-во: {group.Count});".ToUpper());
+                stringBuilder.AppendLine($"    - ID: {device.ShortName}, {device.DeviceModel.Manufacturer} {device.DeviceModel.Model};".ToUpper());
             }
 
             stringBuilder.AppendLine($"КОММЕНТАРИЙ: \"{request.Comment}\"".ToUpper());
