@@ -46,14 +46,7 @@ namespace LaptopTracker.Pages
         }
         private void Accept_Click(object sender, RoutedEventArgs e)
         {
-            foreach (Device laptop in giveRequest.Device)
-            {
-                laptop.Laptop.Issued = false;
-            }
-            App.entities.GiveRequest.Remove(giveRequest);
-            App.entities.SaveChanges();
-
-            MainWindow.Frame_MainFrame.Navigate(new SuccesPage());
+            MainWindow.Frame_MainFrame.Navigate(new ConfirmPage(giveRequest));
         }
     }
 }

@@ -8,16 +8,16 @@
       d:DesignHeight="768" d:DesignWidth="1366"
       Title="ConfirmPage">
 
-	<Border BorderThickness="5" BorderBrush="Red">
+	<Border BorderThickness="5" BorderBrush="Red" Name="PulseBorder">
 		<StackPanel VerticalAlignment="Center">
 			<TextBlock FontSize="68" Text="ПРИНЯТЬ ВЫДАННЫЕ НОУТБУКИ?"  FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" Foreground="White" HorizontalAlignment="Center"/>
 			<Rectangle Height="16"/>
 			<TextBlock FontSize="24" TextWrapping="WrapWithOverflow" Text="ПОСЛЕ ПОДТВЕРЖДЕНИ, БУДЕТ ВЫПОЛНЕНА ЗАПИСЬ В БАЗУ ДАННЫХ О ПРИНЯТИИ ВЫДАННЫХ НОУТБУКОВ?"  FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" Foreground="White" HorizontalAlignment="Center" TextAlignment="Center" Width="650"/>
 			<Rectangle Height="16"/>
 			<StackPanel HorizontalAlignment="Center">
-				<Button Content="ПОДТВЕРДИТЬ" FontSize="36"/>
+				<Button Content="ПОДТВЕРДИТЬ" FontSize="36" Click="Confirm_Click"/>
 				<Rectangle Height="16"/>
-				<Button Content="ОТМЕНА" FontSize="36"/>
+				<Button Content="ОТМЕНА" FontSize="36" Click="Return_Click"/>
 			</StackPanel>
 			
 		</StackPanel>

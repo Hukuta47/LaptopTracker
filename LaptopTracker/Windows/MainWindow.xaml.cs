@@ -19,13 +19,13 @@ namespace LaptopTracker
         static private Border staticBorder_Message;
 
 
-        static public Page ConfirmPage = new();
-        static public Page EnterData = new();
-        static public Page GivePage = new();
-        static public Page GivePageResult = new();
-        static public Page MainMenu = new();
-        static public Page MainMenuWithTable = new();
-        static public Page TakePage = new();
+        static public Page ConfirmPage;
+        static public Page EnterData;
+        static public Page GivePage;
+        static public Page GivePageResult;
+        static public Page MainMenu;
+        static public Page MainMenuWithTable;
+        static public Page TakePage;
 
         private static CancellationTokenSource _cts;
         public MainWindow()
