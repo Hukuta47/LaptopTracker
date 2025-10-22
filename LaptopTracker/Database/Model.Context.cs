@@ -38,6 +38,7 @@ namespace LaptopTracker.Database
         public virtual DbSet<EmployeePosition> EmployeePosition { get; set; }
         public virtual DbSet<GivedDevices> GivedDevices { get; set; }
         public virtual DbSet<GiveRequest> GiveRequest { get; set; }
+        public virtual DbSet<GiveRequest_Log> GiveRequest_Log { get; set; }
         public virtual DbSet<Laptop> Laptop { get; set; }
         public virtual DbSet<PerfomanceRate> PerfomanceRate { get; set; }
         public virtual DbSet<Printer> Printer { get; set; }

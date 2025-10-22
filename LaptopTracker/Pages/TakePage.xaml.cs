@@ -15,7 +15,10 @@ namespace LaptopTracker.Pages
             this.giveRequest = giveRequest;
             TextBlock_FinalMessage.Text = GenerateFinalMessage(giveRequest);
         }
-        private void Return_Click(object sender, RoutedEventArgs e) => MainWindow.Frame_MainFrame.GoBack();
+        private void Return_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.GoToMainPage();
+        }
         string GenerateFinalMessage(GiveRequest request)
         {
             var devicesGrouped = request.Device.GroupBy(d => d.DeviceModelId).Select(
@@ -48,7 +51,6 @@ namespace LaptopTracker.Pages
                 laptop.Laptop.Issued = false;
             }
             App.entities.GiveRequest.Remove(giveRequest);
-
             App.entities.SaveChanges();
 
             MainWindow.Frame_MainFrame.Navigate(new SuccesPage());

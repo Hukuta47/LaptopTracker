@@ -26,8 +26,8 @@ namespace LaptopTracker.Database
         public string InventoryNumber { get; set; }
         public string SerialNumber { get; set; }
         public Nullable<int> RoomId { get; set; }
-        public Nullable<int> DeviceModelId { get; set; }
-        public Nullable<int> StatusId { get; set; }
+        public int DeviceModelId { get; set; }
+        public int StatusId { get; set; }
         public string ShortName { get; set; }
     
         public virtual DeviceModel DeviceModel { get; set; }

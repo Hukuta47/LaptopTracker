@@ -1,0 +1,25 @@
+﻿<Page x:Class="LaptopTracker.Pages.ConfirmPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LaptopTracker.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="768" d:DesignWidth="1366"
+      Title="ConfirmPage">
+
+	<Border BorderThickness="5" BorderBrush="Red">
+		<StackPanel VerticalAlignment="Center">
+			<TextBlock FontSize="68" Text="ПРИНЯТЬ ВЫДАННЫЕ НОУТБУКИ?"  FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" Foreground="White" HorizontalAlignment="Center"/>
+			<Rectangle Height="16"/>
+			<TextBlock FontSize="24" TextWrapping="WrapWithOverflow" Text="ПОСЛЕ ПОДТВЕРЖДЕНИ, БУДЕТ ВЫПОЛНЕНА ЗАПИСЬ В БАЗУ ДАННЫХ О ПРИНЯТИИ ВЫДАННЫХ НОУТБУКОВ?"  FontFamily="pack://application:,,,/Resources/#Clear Sans Infanity Bold" Foreground="White" HorizontalAlignment="Center" TextAlignment="Center" Width="650"/>
+			<Rectangle Height="16"/>
+			<StackPanel HorizontalAlignment="Center">
+				<Button Content="ПОДТВЕРДИТЬ" FontSize="36"/>
+				<Rectangle Height="16"/>
+				<Button Content="ОТМЕНА" FontSize="36"/>
+			</StackPanel>
+			
+		</StackPanel>
+	</Border>
+</Page>

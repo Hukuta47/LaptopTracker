@@ -79,11 +79,11 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Characteristics" Type="xml" />
-          <Property Name="InventoryNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="InventoryNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="SerialNumber" Type="nvarchar" MaxLength="50" />
           <Property Name="RoomId" Type="int" />
-          <Property Name="DeviceModelId" Type="int" />
-          <Property Name="StatusId" Type="int" />
+          <Property Name="DeviceModelId" Type="int" Nullable="false" />
+          <Property Name="StatusId" Type="int" Nullable="false" />
           <Property Name="ShortName" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="DeviceModel">
@@ -154,6 +154,16 @@
           <Property Name="GivedDate" Type="datetime" Nullable="false" />
           <Property Name="Comment" Type="nvarchar" MaxLength="250" />
         </EntityType>
+        <EntityType Name="GiveRequest_Log">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WhoGivedLaptops" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ReceivedDate" Type="datetime" Nullable="false" />
+          <Property Name="Laptops" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="250" Nullable="false" />
+        </EntityType>
         <EntityType Name="Laptop">
           <Key>
             <PropertyRef Name="Id" />
@@ -167,7 +177,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Printer">
@@ -309,7 +319,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Device_DeviceModel">
-          <End Role="DeviceModel" Type="Self.DeviceModel" Multiplicity="0..1" />
+          <End Role="DeviceModel" Type="Self.DeviceModel" Multiplicity="1" />
           <End Role="Device" Type="Self.Device" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="DeviceModel">
@@ -333,7 +343,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Device_StatusDevice">
-          <End Role="StatusDevice" Type="Self.StatusDevice" Multiplicity="0..1" />
+          <End Role="StatusDevice" Type="Self.StatusDevice" Multiplicity="1" />
           <End Role="Device" Type="Self.Device" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="StatusDevice">
@@ -464,7 +474,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Laptop_PerfomanceRate">
+        <Association Name="FK_Laptop_PerfomanceRate1">
           <End Role="PerfomanceRate" Type="Self.PerfomanceRate" Multiplicity="1" />
           <End Role="Laptop" Type="Self.Laptop" Multiplicity="*" />
           <ReferentialConstraint>
@@ -542,6 +552,7 @@
           <EntitySet Name="GivedDevices" EntityType="Self.GivedDevices" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GivedDevices_Device" EntityType="Self.GivedDevices_Device" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GiveRequest" EntityType="Self.GiveRequest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GiveRequest_Log" EntityType="Self.GiveRequest_Log" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Laptop" EntityType="Self.Laptop" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PerfomanceRate" EntityType="Self.PerfomanceRate" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Printer" EntityType="Self.Printer" Schema="dbo" store:Type="Tables" />
@@ -633,7 +644,7 @@
             <End Role="Device" EntitySet="Device" />
             <End Role="Laptop" EntitySet="Laptop" />
           </AssociationSet>
-          <AssociationSet Name="FK_Laptop_PerfomanceRate" Association="Self.FK_Laptop_PerfomanceRate">
+          <AssociationSet Name="FK_Laptop_PerfomanceRate1" Association="Self.FK_Laptop_PerfomanceRate1">
             <End Role="PerfomanceRate" EntitySet="PerfomanceRate" />
             <End Role="Laptop" EntitySet="Laptop" />
           </AssociationSet>
@@ -672,6 +683,7 @@
           <EntitySet Name="EmployeePosition" EntityType="LITModel.EmployeePosition" />
           <EntitySet Name="GivedDevices" EntityType="LITModel.GivedDevices" />
           <EntitySet Name="GiveRequest" EntityType="LITModel.GiveRequest" />
+          <EntitySet Name="GiveRequest_Log" EntityType="LITModel.GiveRequest_Log" />
           <EntitySet Name="Laptop" EntityType="LITModel.Laptop" />
           <EntitySet Name="PerfomanceRate" EntityType="LITModel.PerfomanceRate" />
           <EntitySet Name="Printer" EntityType="LITModel.Printer" />
@@ -743,7 +755,7 @@
             <End Role="Employee" EntitySet="Employee" />
             <End Role="GiveRequest" EntitySet="GiveRequest" />
           </AssociationSet>
-          <AssociationSet Name="FK_Laptop_PerfomanceRate" Association="LITModel.FK_Laptop_PerfomanceRate">
+          <AssociationSet Name="FK_Laptop_PerfomanceRate1" Association="LITModel.FK_Laptop_PerfomanceRate1">
             <End Role="PerfomanceRate" EntitySet="PerfomanceRate" />
             <End Role="Laptop" EntitySet="Laptop" />
           </AssociationSet>
@@ -837,11 +849,11 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Characteristics" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="InventoryNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="InventoryNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SerialNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="RoomId" Type="Int32" />
-          <Property Name="DeviceModelId" Type="Int32" />
-          <Property Name="StatusId" Type="Int32" />
+          <Property Name="DeviceModelId" Type="Int32" Nullable="false" />
+          <Property Name="StatusId" Type="Int32" Nullable="false" />
           <Property Name="ShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="DeviceModel" Relationship="LITModel.FK_Device_DeviceModel" FromRole="Device" ToRole="DeviceModel" />
           <NavigationProperty Name="Room" Relationship="LITModel.FK_Device_Room" FromRole="Device" ToRole="Room" />
@@ -916,6 +928,16 @@
           <NavigationProperty Name="Employee" Relationship="LITModel.FK_GiveRequest_Employee" FromRole="GiveRequest" ToRole="Employee" />
           <NavigationProperty Name="Device" Relationship="LITModel.GivedDevices_Device" FromRole="GiveRequest" ToRole="Device" />
         </EntityType>
+        <EntityType Name="GiveRequest_Log">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WhoGivedLaptops" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ReceivedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Laptops" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Comment" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="Laptop">
           <Key>
             <PropertyRef Name="Id" />
@@ -925,15 +947,15 @@
           <Property Name="Issued" Type="Boolean" Nullable="false" />
           <Property Name="PerfomanceRateId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Device" Relationship="LITModel.FK_Laptop_Device" FromRole="Laptop" ToRole="Device" />
-          <NavigationProperty Name="PerfomanceRate" Relationship="LITModel.FK_Laptop_PerfomanceRate" FromRole="Laptop" ToRole="PerfomanceRate" />
+          <NavigationProperty Name="PerfomanceRate" Relationship="LITModel.FK_Laptop_PerfomanceRate1" FromRole="Laptop" ToRole="PerfomanceRate" />
         </EntityType>
         <EntityType Name="PerfomanceRate">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Laptop" Relationship="LITModel.FK_Laptop_PerfomanceRate" FromRole="PerfomanceRate" ToRole="Laptop" />
+          <NavigationProperty Name="Laptop" Relationship="LITModel.FK_Laptop_PerfomanceRate1" FromRole="PerfomanceRate" ToRole="Laptop" />
         </EntityType>
         <EntityType Name="Printer">
           <Key>
@@ -1060,7 +1082,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Device_DeviceModel">
-          <End Type="LITModel.DeviceModel" Role="DeviceModel" Multiplicity="0..1" />
+          <End Type="LITModel.DeviceModel" Role="DeviceModel" Multiplicity="1" />
           <End Type="LITModel.Device" Role="Device" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="DeviceModel">
@@ -1084,7 +1106,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Device_StatusDevice">
-          <End Type="LITModel.StatusDevice" Role="StatusDevice" Multiplicity="0..1" />
+          <End Type="LITModel.StatusDevice" Role="StatusDevice" Multiplicity="1" />
           <End Type="LITModel.Device" Role="Device" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="StatusDevice">
@@ -1179,7 +1201,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Laptop_PerfomanceRate">
+        <Association Name="FK_Laptop_PerfomanceRate1">
           <End Type="LITModel.PerfomanceRate" Role="PerfomanceRate" Multiplicity="1" />
           <End Type="LITModel.Laptop" Role="Laptop" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1351,6 +1373,17 @@
                 <ScalarProperty Name="Comment" ColumnName="Comment" />
                 <ScalarProperty Name="GivedDate" ColumnName="GivedDate" />
                 <ScalarProperty Name="WhoGivedEmployeeId" ColumnName="WhoGivedEmployeeId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GiveRequest_Log">
+            <EntityTypeMapping TypeName="LITModel.GiveRequest_Log">
+              <MappingFragment StoreEntitySet="GiveRequest_Log">
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Laptops" ColumnName="Laptops" />
+                <ScalarProperty Name="ReceivedDate" ColumnName="ReceivedDate" />
+                <ScalarProperty Name="WhoGivedLaptops" ColumnName="WhoGivedLaptops" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

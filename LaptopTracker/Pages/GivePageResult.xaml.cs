@@ -1,4 +1,5 @@
 ﻿using LaptopTracker.Database;
+using System;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -19,11 +20,15 @@ namespace LaptopTracker.Pages
 
         private void Give_Click(object sender, RoutedEventArgs e)
         {
+            string LaptopsText = "";
+
             foreach (Device device in request.Device)
             {
                 device.Laptop.Issued = true;
+                LaptopsText += $"{device.DeviceModel.Manufacturer} {device.DeviceModel.Model} {device.InventoryNumber} {device.ShortName}; ";
             }
             App.entities.GiveRequest.Add(request);
+            App.entities.GiveRequest_Log.Add(new GiveRequest_Log() { WhoGivedLaptops = App.entities.Employee.First(employee => employee.Id == request.WhoGivedEmployeeId).FullName, ReceivedDate = DateTime.Now, Comment = request.Comment, Laptops = LaptopsText });
             App.entities.SaveChanges();
             MainWindow.Frame_MainFrame.Navigate(new SuccesPage());
             
@@ -53,6 +58,6 @@ namespace LaptopTracker.Pages
 
             return stringBuilder.ToString();
         }
-        private void Return_Click(object sender, RoutedEventArgs e) => MainWindow.Frame_MainFrame.GoBack();
+        private void Return_Click(object sender, RoutedEventArgs e) => MainWindow.Frame_MainFrame.Navigate(MainWindow.EnterData);
     }
 }

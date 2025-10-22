@@ -16,18 +16,13 @@ using System.Windows.Shapes;
 namespace LaptopTracker.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainMenu.xaml
+    /// Логика взаимодействия для ConfirmPage.xaml
     /// </summary>
-    public partial class MainMenu : Page
+    public partial class ConfirmPage : Page
     {
-        public MainMenu()
+        public ConfirmPage()
         {
             InitializeComponent();
-        }
-
-        private void GivePage_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow.Frame_MainFrame.Navigate(MainWindow.GivePage);
         }
     }
 }

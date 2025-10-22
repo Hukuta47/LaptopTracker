@@ -17,6 +17,8 @@ namespace LaptopTracker.Pages
         private static ComboBox staticComboBox_MethodSort;
         private static TextBox staticTextBox_Search;
 
+        private static HashSet<int> SelectedDeviceIds = new HashSet<int>();
+
         List<string> SortMethods = new List<string>()
         {
             "ПО МОДЕЛИ",
@@ -33,19 +35,41 @@ namespace LaptopTracker.Pages
             staticTextBox_Search = TextBox_Search;
 
             ComboBox_MethodSort.ItemsSource = SortMethods;
-
             _isButtonShown = false;
+
             RefreshDevices();
         }
 
         private void Return_Click(object sender, RoutedEventArgs e)
         {
+            SelectedDeviceIds.Clear();
             MainWindow.GoToMainPage();
         }
 
         public static void OnSelectElement()
         {
-            bool isOneChosen = staticItemsPanel.Children.OfType<DeviceCard>().Any(card => card.isSelected);
+            var visibleSelectedIds = staticItemsPanel.Children
+                .OfType<DeviceCard>()
+                .Where(card => card.isSelected)
+                .Select(card => card.Device.Id)
+                .ToHashSet();
+
+            foreach (var id in visibleSelectedIds)
+                SelectedDeviceIds.Add(id);
+
+            var visibleIds = staticItemsPanel.Children
+                .OfType<DeviceCard>()
+                .Select(card => card.Device.Id)
+                .ToHashSet();
+
+            var toRemove = SelectedDeviceIds
+                .Where(id => visibleIds.Contains(id) && !visibleSelectedIds.Contains(id))
+                .ToList();
+
+            foreach (var id in toRemove)
+                SelectedDeviceIds.Remove(id);
+
+            bool isOneChosen = SelectedDeviceIds.Any();
 
             if (_isButtonShown != isOneChosen)
             {
@@ -56,12 +80,12 @@ namespace LaptopTracker.Pages
 
         private void NextPage_Click(object sender, RoutedEventArgs e)
         {
-            var selectedDevices = ItemsPanel.Children.OfType<DeviceCard>()
-                .Where(Card => Card.isSelected)
-                .Select(card => App.entities.Device.First(device => device.Id == card.Device.Id))
+            var selectedDevices = App.entities.Device
+                .Where(device => SelectedDeviceIds.Contains(device.Id))
                 .ToList();
 
-            MainWindow.Frame_MainFrame.Navigate(new EnterData(selectedDevices));
+            MainWindow.EnterData = new EnterData(selectedDevices);
+            MainWindow.Frame_MainFrame.Navigate(MainWindow.EnterData);
         }
 
         public static void ShowButton(bool isShow)
@@ -77,7 +101,6 @@ namespace LaptopTracker.Pages
             staticButton_Next.BeginAnimation(MarginProperty, animation);
         }
 
-
         private void ComboBox_MethodSort_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             RefreshDevices();
@@ -88,11 +111,8 @@ namespace LaptopTracker.Pages
             RefreshDevices();
         }
 
-
         private static void RefreshDevices()
         {
-            OnSelectElement();
-
             string searchText = staticTextBox_Search?.Text?.ToLower() ?? "";
             string sortMethod = staticComboBox_MethodSort?.SelectedItem as string ?? "ПО МОДЕЛИ";
 
@@ -117,11 +137,21 @@ namespace LaptopTracker.Pages
             var devices = query.ToList();
 
             staticItemsPanel.Children.Clear();
+
             foreach (var device in devices)
             {
                 var card = new DeviceCard(device);
+
+                if (SelectedDeviceIds.Contains(device.Id))
+                {
+                    card.isSelected = true;
+                    ((Storyboard)card.Resources["ShowCheckAnimation"]).Begin();
+                }
+
                 staticItemsPanel.Children.Add(card);
             }
+
+            OnSelectElement();
         }
     }
 }

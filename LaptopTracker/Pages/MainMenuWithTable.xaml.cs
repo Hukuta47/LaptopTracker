@@ -20,7 +20,7 @@ namespace LaptopTracker.Pages
         }
         private void Give_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow.Frame_MainFrame.Navigate(new GivePage());
+            MainWindow.Frame_MainFrame.Navigate(MainWindow.GivePage);
         }
     }
 }

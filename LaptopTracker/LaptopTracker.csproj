@@ -36,6 +36,9 @@
     <WarningLevel>4</WarningLevel>
     <LangVersion>preview</LangVersion>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
@@ -102,6 +105,9 @@
     <Compile Include="Database\GiveRequest.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Database\GiveRequest_Log.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Database\Laptop.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -123,6 +129,9 @@
     <Compile Include="Database\StatusDevice.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ConfirmPage.xaml.cs">
+      <DependentUpon>ConfirmPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\EnterData.xaml.cs">
       <DependentUpon>EnterData.xaml</DependentUpon>
     </Compile>
@@ -138,6 +147,10 @@
     <Compile Include="UserControls\DeviceCard.xaml.cs">
       <DependentUpon>DeviceCard.xaml</DependentUpon>
     </Compile>
+    <Page Include="Pages\ConfirmPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\EnterData.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -271,6 +284,7 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
+    <Resource Include="icon.ico" />
     <Resource Include="Resources\X circle.png" />
     <Resource Include="Resources\SuccesIcon.png" />
     <Resource Include="Resources\Info.png" />

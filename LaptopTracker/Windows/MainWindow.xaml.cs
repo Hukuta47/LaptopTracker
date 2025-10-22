@@ -18,6 +18,15 @@ namespace LaptopTracker
         static private TextBlock staticTextBlock_Message;
         static private Border staticBorder_Message;
 
+
+        static public Page ConfirmPage = new();
+        static public Page EnterData = new();
+        static public Page GivePage = new();
+        static public Page GivePageResult = new();
+        static public Page MainMenu = new();
+        static public Page MainMenuWithTable = new();
+        static public Page TakePage = new();
+
         private static CancellationTokenSource _cts;
         public MainWindow()
         {
@@ -25,7 +34,7 @@ namespace LaptopTracker
             Frame_MainFrame = MainFrame;
             staticBorder_Message = Border_Message;
             staticTextBlock_Message = TextBlock_Message;
-            if (App.entities.Laptop.Any(Laptop => Laptop.Issued == true))
+            if (App.entities.GiveRequest.ToList().Count > 0)
             {
                 MainFrame.Navigate(new MainMenuWithTable());
             }

@@ -36,11 +36,12 @@ namespace LaptopTracker.Pages
                     WhoGivedEmployeeId = (int)Combobox_SelectEmployee.SelectedValue,
                 };
 
-                MainWindow.Frame_MainFrame.Navigate(new GivePageResult(giveRequest));
+                MainWindow.GivePageResult = new GivePageResult(giveRequest);
+                MainWindow.Frame_MainFrame.Navigate(MainWindow.GivePageResult);
             }   
         }
 
-        private void Return_Click(object sender, RoutedEventArgs e) => MainWindow.Frame_MainFrame.GoBack();
+        private void Return_Click(object sender, RoutedEventArgs e) => MainWindow.Frame_MainFrame.Navigate(MainWindow.GivePage);
 
         private void Textbox_EnterComment_TextChanged(object sender, TextChangedEventArgs e)
         {
