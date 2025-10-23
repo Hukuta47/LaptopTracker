@@ -26,7 +26,9 @@ namespace LaptopTracker.Database
         public string FullName { get; set; }
         public string DomainName { get; set; }
         public Nullable<int> RoomId { get; set; }
-    
+        public string FirstAndSecondName { get { return $"{FullName.Split(' ')[0]} {FullName.Split(' ')[1]}".ToUpper(); } set; }
+
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GivedDevices> GivedDevices { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
