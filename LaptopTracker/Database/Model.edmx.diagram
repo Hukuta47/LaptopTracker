@@ -5,12 +5,6 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="d41f2510279848d8be653a92b6ff0efd" Name="Diagram1" ZoomLevel="121">
-        <EntityTypeShape EntityType="LITModel.Building" Width="1.5" PointX="5.25" PointY="4" />
-        <EntityTypeShape EntityType="LITModel.Cartridge" Width="1.5" PointX="3" PointY="7" />
-        <EntityTypeShape EntityType="LITModel.CartridgeModel" Width="1.5" PointX="5.25" PointY="11.375" />
-        <EntityTypeShape EntityType="LITModel.CartridgeReplacement_Log" Width="1.5" PointX="7.5" PointY="7.125" />
-        <EntityTypeShape EntityType="LITModel.CartridgeStatus" Width="1.5" PointX="0.75" PointY="7.75" />
-        <EntityTypeShape EntityType="LITModel.CartridgeType" Width="1.5" PointX="0.75" PointY="4.75" />
         <EntityTypeShape EntityType="LITModel.Device" Width="1.5" PointX="9.75" PointY="10.25" />
         <EntityTypeShape EntityType="LITModel.DeviceModel" Width="1.5" PointX="7.5" PointY="11" />
         <EntityTypeShape EntityType="LITModel.DeviceType" Width="1.5" PointX="5.25" PointY="14.5" />
@@ -21,31 +15,15 @@
         <EntityTypeShape EntityType="LITModel.GiveRequest_Log" Width="1.5" PointX="9.75" PointY="1.875" />
         <EntityTypeShape EntityType="LITModel.Laptop" Width="1.5" PointX="12" PointY="8.125" />
         <EntityTypeShape EntityType="LITModel.PerfomanceRate" Width="1.5" PointX="9.75" PointY="7.5" />
-        <EntityTypeShape EntityType="LITModel.Printer" Width="1.5" PointX="5.25" PointY="7.125" />
-        <EntityTypeShape EntityType="LITModel.PrinterStatus" Width="1.5" PointX="3" PointY="3.75" />
-        <EntityTypeShape EntityType="LITModel.ReasonForRelpacement" Width="1.5" PointX="5.25" PointY="0.75" />
-        <EntityTypeShape EntityType="LITModel.Room" Width="1.5" PointX="7.5" PointY="3.625" />
         <EntityTypeShape EntityType="LITModel.StatusDevice" Width="1.5" PointX="7.5" PointY="14.75" />
-        <AssociationConnector Association="LITModel.FK_Room_Building" />
-        <AssociationConnector Association="LITModel.FK_Cartridge_CartridgeStatus" />
-        <AssociationConnector Association="LITModel.FK_Cartridge_CartridgeType" />
-        <AssociationConnector Association="LITModel.FK_Printer_Cartridge" />
-        <AssociationConnector Association="LITModel.FK_CartridgeReplacement_Log_Printer" />
-        <AssociationConnector Association="LITModel.FK_CartridgeReplacement_Log_ReasonForRelpacement" />
         <AssociationConnector Association="LITModel.FK_Device_DeviceModel" />
-        <AssociationConnector Association="LITModel.FK_Device_Room" />
         <AssociationConnector Association="LITModel.FK_Device_StatusDevice" />
         <AssociationConnector Association="LITModel.FK_GivedDevices_Device" />
         <AssociationConnector Association="LITModel.FK_Laptop_Device" />
-        <AssociationConnector Association="LITModel.FK_Printer_Device" />
         <AssociationConnector Association="LITModel.FK_DeviceModel_DeviceType" />
-        <AssociationConnector Association="LITModel.FK_Employee_Room" />
         <AssociationConnector Association="LITModel.FK_GivedDevices_Employee" />
         <AssociationConnector Association="LITModel.FK_GiveRequest_Employee" />
         <AssociationConnector Association="LITModel.FK_Laptop_PerfomanceRate1" />
-        <AssociationConnector Association="LITModel.FK_Printer_PrinterStatus" />
-        <AssociationConnector Association="LITModel.Cartridge_CartridgeModel" />
-        <AssociationConnector Association="LITModel.CartridgeCompatibility" />
         <AssociationConnector Association="LITModel.Employee_EmployeePosition" />
         <AssociationConnector Association="LITModel.GivedDevices_Device" />
       </Diagram>

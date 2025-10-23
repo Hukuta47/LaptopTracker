@@ -25,12 +25,6 @@ namespace LaptopTracker.Database
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Building> Building { get; set; }
-        public virtual DbSet<Cartridge> Cartridge { get; set; }
-        public virtual DbSet<CartridgeModel> CartridgeModel { get; set; }
-        public virtual DbSet<CartridgeReplacement_Log> CartridgeReplacement_Log { get; set; }
-        public virtual DbSet<CartridgeStatus> CartridgeStatus { get; set; }
-        public virtual DbSet<CartridgeType> CartridgeType { get; set; }
         public virtual DbSet<Device> Device { get; set; }
         public virtual DbSet<DeviceModel> DeviceModel { get; set; }
         public virtual DbSet<DeviceType> DeviceType { get; set; }
@@ -41,10 +35,6 @@ namespace LaptopTracker.Database
         public virtual DbSet<GiveRequest_Log> GiveRequest_Log { get; set; }
         public virtual DbSet<Laptop> Laptop { get; set; }
         public virtual DbSet<PerfomanceRate> PerfomanceRate { get; set; }
-        public virtual DbSet<Printer> Printer { get; set; }
-        public virtual DbSet<PrinterStatus> PrinterStatus { get; set; }
-        public virtual DbSet<ReasonForRelpacement> ReasonForRelpacement { get; set; }
-        public virtual DbSet<Room> Room { get; set; }
         public virtual DbSet<StatusDevice> StatusDevice { get; set; }
     }
 }

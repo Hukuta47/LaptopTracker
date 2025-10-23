@@ -31,12 +31,10 @@ namespace LaptopTracker.Database
         public string ShortName { get; set; }
     
         public virtual DeviceModel DeviceModel { get; set; }
-        public virtual Room Room { get; set; }
         public virtual StatusDevice StatusDevice { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GivedDevices> GivedDevices { get; set; }
         public virtual Laptop Laptop { get; set; }
-        public virtual Printer Printer { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GiveRequest> GiveRequest { get; set; }
     }
